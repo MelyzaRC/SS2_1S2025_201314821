@@ -16,6 +16,9 @@ import extraccion                           # type: ignore
 import transformacion                       # type: ignore  
 import carga                                # type: ignore
 
+data = None
+data_transformada = None
+
 def extraer_informacion():
     global data
     limpiar_pantalla()
@@ -32,6 +35,10 @@ def transformar_informacion():
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA) 
     print(COLORES["amarillo"] + "TRANSFORMAR INFORMACIÓN"                                                   + FIN_LINEA)
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    if data is None :
+        print(COLORES["rojo"] + "No hay información para transformar\n" + FIN_LINEA)
+        presione_enter()
+        return
     data_transformada= transformacion.transformar(data)
     presione_enter()
 
@@ -41,6 +48,13 @@ def cargar_informacion():
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA) 
     print(COLORES["amarillo"] + "CARGAR INFORMACIÓN"                                                        + FIN_LINEA)
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    if(consultas.verificar_modelo() == False):
+        print(COLORES["rojo"] + "No existe un modelo para cargar la información\n" + FIN_LINEA)
+        presione_enter()
+    if data_transformada is None:
+        print(COLORES["rojo"] + "No hay información para cargar\n" + FIN_LINEA)
+        presione_enter()
+        return
     carga.cargar(data_transformada)
     presione_enter()
 
@@ -65,18 +79,30 @@ def salir():
 # BORRAR MODELO: VACIA LA INFORMACION CONTENIDA EN LAS TABLAS DE LA BASE DE DATOS
 def borrar_modelo():
     limpiar_pantalla()
-    print(COLORES["verde"] + "Borrar modelo" + FIN_LINEA)
-    consultas.borrarModeloDB()
-    input("")
+    print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA) 
+    print(COLORES["amarillo"] + "BORRAR MODELO"                                                             + FIN_LINEA)
+    print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    if(consultas.verificar_modelo() == False):
+        print(COLORES["rojo"] + "No hay modelo para borrar\n" + FIN_LINEA)
+        presione_enter()
+
+    consultas.borrar_modelo()
+    print(COLORES["verde"] + "Borrar modelo\n" + FIN_LINEA)
+    presione_enter()
     menu()
 
 # CREAR MODELO: CARGA LOS DATOS OBTENIDOS DESDE EL CSV 
-def crerar_modelo():
+def crear_modelo():
     limpiar_pantalla()
-    print(COLORES["verde"] + "Crear modelo" + FIN_LINEA)
-    consultas.crearModeloDB()
-    input("")
-    menu()
+    print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA) 
+    print(COLORES["amarillo"] + "CREAR MODELO"                                                              + FIN_LINEA)
+    print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    if(consultas.verificar_modelo() == True):
+        print(COLORES["rojo"] + "Ya existe un modelo\n" + FIN_LINEA)
+        presione_enter()
+    print(COLORES["verde"] + "Crear modelo\n" + FIN_LINEA)
+    consultas.crear_modelo()
+    presione_enter()
 
 # INFORMACION DE LAS TABLAS CARGADAS: MUESTRA UN COUNT DE CADA UNA DE LAS TABLAS CARGADAS
 def informacion_tablas_cargadas():
@@ -84,6 +110,9 @@ def informacion_tablas_cargadas():
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA) 
     print(COLORES["amarillo"] + "INFORMACIÓN DE TABLAS CARGADAS"                                            + FIN_LINEA)
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    if(consultas.verificar_modelo() == False):
+        print(COLORES["rojo"] + "No hay modelo para mostrar información\n" + FIN_LINEA)
+        presione_enter()
     consultas.consulta_cantidad_datos()
     presione_enter()
     menu()
@@ -171,6 +200,10 @@ def consulta9():
 
 # SUB MENU CONSULTAS: CONSULTAS REQUERIDAS EN EL ENUNCIADO
 def sub_menu_consultas():
+    if(consultas.verificar_modelo() == False):
+        print(COLORES["rojo"] + "\nNo hay modelo para realizar consultas\n" + FIN_LINEA)
+        presione_enter()
+
     limpiar_pantalla()
     opcion = 0
     print(COLORES["azul"] + "------------------------------------------------------------------"      + FIN_LINEA)
@@ -236,7 +269,7 @@ def menu():
         else:
             switch = {
                 1: borrar_modelo                    ,
-                2: crerar_modelo                    ,   
+                2: crear_modelo                     ,   
                 3: extraer_informacion              ,
                 4: transformar_informacion          ,
                 5: cargar_informacion               ,

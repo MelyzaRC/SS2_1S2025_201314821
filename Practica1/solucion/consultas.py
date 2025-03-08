@@ -213,17 +213,42 @@ def consulta9():
 def borrar_modelo(): 
     conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    with open("script_borrar.sql", "r", encoding="utf-8") as file:
+        sql_script = file.read()
+
+    for statement in sql_script.split(";"):
+        if statement.strip(): 
+            cursor.execute(statement)
+            conn.commit() 
+    
+    cursor.close()
     cerrar_conexion_db(conn)
 
-def crerar_modelo(): 
+def crear_modelo(): 
     conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    with open("script_db.sql", "r", encoding="utf-8") as file:
+        sql_script = file.read()
+
+    for statement in sql_script.split(";"):
+        if statement.strip(): 
+            cursor.execute(statement)
+            conn.commit() 
+    
+    cursor.close()
     cerrar_conexion_db(conn)
+
+def verificar_modelo():
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'FactFlight'")
+    rows = cursor.fetchall()
+    if len(rows) > 0:
+        cerrar_conexion_db(conn)
+        return True
+    else:
+        cerrar_conexion_db(conn)
+        return False
+    
+
+

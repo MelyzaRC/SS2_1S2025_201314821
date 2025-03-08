@@ -118,6 +118,11 @@
 >
 > El proceso ***ETL (Extract, Transform, Load)*** es un método utilizado en la integración de datos para extraer información de diversas fuentes, transformarla según las necesidades del negocio y cargarla en un destino, como un almacén de datos. Extracción implica recuperar datos de bases de datos, APIs o archivos. Transformación aplica reglas, limpieza y agregaciones para estructurar los datos. Carga transfiere los datos procesados al destino final para su análisis. ETL es clave en business intelligence y big data, asegurando calidad y coherencia en los datos utilizados para la toma de decisiones empresariales.
 
+
+|Tecnología|Descripción|
+|--|--|
+|<img src="https://cdn.worldvectorlogo.com/logos/pandas.svg"  alt="drawing" width="100"></br></br>***PANDAS*** | Pandas es una biblioteca de Python utilizada para la manipulación y análisis de datos. Proporciona estructuras de datos eficientes, como DataFrame (tablas similares a hojas de cálculo) y Series (vectores unidimensionales), facilitando la limpieza, transformación y exploración de grandes volúmenes de información. Permite leer y escribir datos en múltiples formatos, como CSV, JSON, Excel y bases de datos SQL. Su integración con bibliotecas como NumPy y Matplotlib la hace ideal para análisis estadístico y visualización. Pandas es ampliamente utilizada en ciencia de datos, machine learning y procesamiento de datos estructurados.|
+
 ## Extracción 
 
 - Código *python* utilizado para la extracción de datos desde el archivo origen. 
@@ -143,11 +148,34 @@ def extraer():
         return None
 ```
 
+Dentro del menú de opciones generales, el apartado de extracción se encuentra en el número 3. 
+
+<img src="images/op31.png"  alt="drawing"> 
+
+Esta opción permite ingresar la ruta del archivo o bien solamente presionar ENTER y utilizar el archivo por defecto que se encuentra en el directorio del proyecto. 
+
+<img src="images/op32.png"  alt="drawing"> 
+
+Una vez que se decida la opción en cuanto al archivo de origen, se procede a cargar la información a memoria, retornando un ***dataframe***. 
+
+<img src="images/op33.png"  alt="drawing"> 
+
+
+> ***Nota:***
+> Si el archivo no puede ser encontrado, se mostrará el error
+> <img src="images/op34.png"  alt="drawing"> 
+
+
+> ***IMPORTANTE*** 
+>
+> Durante el desarrollo de la práctica podemos observar el fragmento de código COLORES["color"], esto nos ayuda a cambiar de color la letra en la terminal, lo cual provee de una interfaz más amigable y estética. 
 
 ## Transformación 
 
 <img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **transformacion.py**  
 
+
+ 
 ```
 import pandas as pd 
 from constantes import COLORES, FIN_LINEA
@@ -232,6 +260,15 @@ def transformar(df):
 
     return [dim_pilot, dim_departure_time,dim_flight_arrival, dim_flight_departure, dim_passenger, fact_flight]
 ```
+
+En esta parte estamos aplicando las diferentes reglas de transformación y limpieza de datos, es la opción 4 del menú principal. 
+
+<img src="images/tr1.png"  alt="drawing" >
+
+En cuanto elegimos la opción, se inicia el proceso de transformación, dando como resultado el conjunto de datos que ya han sido procesados, divididos en tablas que representan los datos que vamos a cargar. 
+
+<img src="images/tr2.png"  alt="drawing" >
+
 
 ## Carga 
 <img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **carga.py**  
@@ -379,6 +416,250 @@ def cargar(data):
         print(f"Error: {e}")
     
 ```
+Por medio del proceso de carga, trasladamos la data que fue previamente procesada en los dos pasos anteriores a la base de datos en disco. 
+
+Esta opción se encuentra en el número 5, cuando presionamos dicha opción, empezará el proceso de carga de datos, mostrando en todo tiempo el estado de la carga y el número de registro que está trabajando en ese momento.
+
+<img src="images/car1.png"  alt="drawing"> 
+
+- **Información de las tablas que fueron cargadad**
+
+La opción 6 del menú general, nos permite ver el estado de las tablas que fueron cargadas. 
+
+<img src="images/can1.png"  alt="drawing"> 
+
+Si seleccionamos dicha opción, podremos ver el nombre de la tabla y la cantidad de registros que posee en el momento en que consultamos. 
+
+<img src="images/can2.png"  alt="drawing"> 
 
 ## Consultas analíticas 
 
+La sección de consultas, permite conocer información de interés acerca del estado de los datos que cargamos. 
+
+<img src="images/con0.png"  alt="drawing"> 
+
+Este apartado es muy importante y debe reflejarse de manera íntegra, ya que será el que ayude a los diferentes usuarios a tomar decisiones organizacionales en función de los resultados obtenidos. 
+
+<img src="images/con01.png"  alt="drawing"> 
+
+A continuación, se detallan cada una de las consultas realizadas, así como el resultado obtenido según los datos actuales. 
+
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **consultas.py** 
+
+- **CONSULTA 1:** Porcentaje de pasajeros por género
+
+```
+def consulta1(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT 
+        gender AS GENERO, 
+        COUNT(*) AS TOTAL, 
+        COUNT(*) * 100.0 / (SELECT COUNT(*) FROM dbo.DimPassenger) AS PORCENTAJE
+        FROM dbo.DimPassenger 
+        GROUP BY gender;
+    """)
+    rows = cursor.fetchall()
+    print("\n-----------------------------------")
+    for row in rows: 
+        print(COLORES["azul"] ,"GÉNERO:            " , FIN_LINEA, row.GENERO)
+        print(COLORES["azul"] ,"TOTAL DE PASAJEROS:" , FIN_LINEA, row.TOTAL)
+        print(COLORES["azul"] ,"PORCENTAJE:        " , FIN_LINEA, round(row.PORCENTAJE,2), "%")
+        print("-----------------------------------")
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta1.png"  alt="drawing"> 
+
+- **CONSULTA 2:** Nacionalidades con su mes año de mayor fecha de salida
+
+```
+def consulta2(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row.id_actor)
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta2.png"  alt="drawing"> 
+
+- **CONSULTA 3:** COUNT de vuelos por país
+
+```
+def consulta3(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT b.country_name AS PAIS, b.airport_country_code AS CODIGO_PAIS,  count(*) AS TOTAL 
+        FROM dbo.FactFlight a, dbo.DimFlightDeparture b 
+        WHERE a.flight_departure = b.id_dim_flight_departure 
+        GROUP BY b.country_name, b.airport_country_code
+        ORDER BY b.country_name ASC 
+        ;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nCOD.PAIS         VUELOS          PAIS" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.CODIGO_PAIS, "\t\t", row.TOTAL, "\t\t", row.PAIS)
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta3.png"  alt="drawing"> 
+
+- **CONSULTA 4:** Top 5 aeropuertos con mayor número de pasajeros
+
+```
+def consulta4(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT TOP 5
+            a.airport_name AS AEROPUERTO, a.country_name AS PAIS, a.airport_country_code AS CODIGO_PAIS, count(*) AS TOTAL_VUELOS
+        FROM 
+            dbo.FactFlight b, 
+            dbo.DimFlightDeparture a 
+        WHERE a.id_dim_flight_departure = b.flight_departure 
+        group by a.airport_name, a.country_name,  a.airport_country_code 
+        ORDER BY TOTAL_VUELOS DESC 
+        ;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nVUELOS\t PAIS\t CODIGO\t\t\t\tVUELOS" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.TOTAL_VUELOS, "\t", row.CODIGO_PAIS, "\t", row.AEROPUERTO, "\t\t", row.PAIS, "\t\t")
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta4.png"  alt="drawing"> 
+
+- **CONSULTA 5:** COUNT divido por estado de vuelo
+
+```
+def consulta5(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT a.status AS STATUS, count(*) AS VUELOS FROM dbo.FactFlight a
+        GROUP BY a.status
+        ORDER BY VUELOS ASC;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nSTATUS\t\tTOTAL_VUELOS" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.STATUS, "\t", row.VUELOS)
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta5.png"  alt="drawing"> 
+
+- **CONSULTA 6:** Top 5 de los países más visitados
+
+```
+def consulta6(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT TOP 5
+        b.airport_name AS DESTINO, count(*) AS VISITAS
+        FROM dbo.FactFlight a , dbo.DimFlightArrival b 
+        WHERE a.flight_arrival = b.id_dim_flight_arrival 
+        group by b.airport_name
+        ORDER BY VISITAS DESC;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nVISITAS\t DESTINO" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.VISITAS, "\t", row.DESTINO)
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta6.png"  alt="drawing"> 
+
+- **CONSULTA 7:** Top 5 de los continentes más visitados
+
+```
+def consulta7(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row.id_actor)
+    cerrar_conexion_db(conn)
+```
+
+
+<img src="images/consulta2.png"  alt="drawing"> 
+
+- **CONSULTA 8:** Top 5 de edades divido por género que más viajan
+
+```
+def consulta8(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        WITH Ranking AS (
+            SELECT 
+                b.gender AS GENERO, 
+                b.age AS EDAD, 
+                COUNT(*) AS VIAJES,
+                ROW_NUMBER() OVER (PARTITION BY b.gender ORDER BY COUNT(*) DESC) AS rn
+            FROM dbo.FactFlight a
+            JOIN dbo.DimPassenger b ON a.passenger = b.id_dim_passenger
+            GROUP BY b.gender, b.age
+        )
+        SELECT GENERO, EDAD, VIAJES
+        FROM Ranking
+        WHERE rn <= 5
+        ORDER BY GENERO ASC, VIAJES DESC;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nGENERO\t EDAD\t VIAJES" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.GENERO, "\t", row.EDAD, "\t", row.VIAJES)
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta8.png"  alt="drawing"> 
+
+- **CONSULTA 9:** COUNT de vuelos por MM-YYYY
+
+```
+def consulta9(): 
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT 
+            b.month as MES, 
+            b.year AS ANIO, 
+            COUNT(*) AS TOTAL_VUELOS
+        FROM dbo.FactFlight a, dbo.DimDepartureTime b
+        WHERE a.departure_time = b.id_dim_departure_time
+        GROUP BY b.year, b.month
+        ORDER BY b.year DESC, b.month ASC;
+    """)
+    rows = cursor.fetchall()
+    print(COLORES["verde"] ,"\nMES\t ANIO\t VUELOS" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.MES, "\t", row.ANIO, "\t", row.TOTAL_VUELOS)
+    print("\n")
+    cerrar_conexion_db(conn)
+```
+
+<img src="images/consulta9.png"  alt="drawing"> 

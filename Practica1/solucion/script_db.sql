@@ -1,63 +1,61 @@
 
-CREATE DATABASE FlightDataWarehouse;
-DROP TABLE FactFlight;
-DROP TABLE DimPassenger;
-DROP TABLE DimPilot;
-DROP TABLE DimFlightDeparture;
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DimPassenger')
+    BEGIN
+        CREATE TABLE DimPassenger (
+            id_dim_passenger  INT PRIMARY KEY,
+            passenger_id NVARCHAR(50) ,
+            first_name NVARCHAR(50),
+            last_name NVARCHAR(50),
+            gender NVARCHAR(10),
+            age INT,
+            nationality NVARCHAR(50)
+        )
+    END;
 
-DROP TABLE DimFlightArrival;
-DROP TABLE DimDepartureTime;
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DimFlightDeparture')
+    BEGIN
+            CREATE TABLE DimFlightDeparture (
+            id_dim_flight_departure INT PRIMARY KEY,
+            airport_name NVARCHAR(100),
+            airport_country_code NVARCHAR(10),
+            country_name NVARCHAR(50),
+            airport_continent NVARCHAR(50),
+            continents NVARCHAR(50)
+        )
+END;
 
-USE FlightDataWarehouse;
-GO
-
-CREATE TABLE DimPassenger (
-	id_dim_passenger  INT PRIMARY KEY,
-    passenger_id NVARCHAR(50) ,
-    first_name NVARCHAR(50),
-    last_name NVARCHAR(50),
-    gender NVARCHAR(10),
-    age INT,
-    nationality NVARCHAR(50)
-);
-GO
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DimFlightArrival')
+    BEGIN
+        CREATE TABLE DimFlightArrival (
+            id_dim_flight_arrival INT PRIMARY KEY,
+            airport_name NVARCHAR(100)
+        )
+END;
 
 
-CREATE TABLE DimFlightDeparture (
-    id_dim_flight_departure INT PRIMARY KEY,
-    airport_name NVARCHAR(100),
-    airport_country_code NVARCHAR(10),
-    country_name NVARCHAR(50),
-    airport_continent NVARCHAR(50),
-    continents NVARCHAR(50)
-);
-GO
-
-CREATE TABLE DimFlightArrival (
-    id_dim_flight_arrival INT PRIMARY KEY,
-    airport_name NVARCHAR(100)
-);
-GO
-
-CREATE TABLE DimDepartureTime (
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DimDepartureTime')
+    BEGIN
+    CREATE TABLE DimDepartureTime (
     id_dim_departure_time INT PRIMARY KEY,
     [date] DATE,
     [year] INT,
     [month] INT,
     [day] INT
-);
-GO
+)
+END;
 
 
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DimPilot')
+    BEGIN
+        CREATE TABLE DimPilot (
+            id_dim_pilot	INT PRIMARY KEY	,
+            pilot_name		NVARCHAR(100)
+        )
+        END;
 
-CREATE TABLE DimPilot (
-    id_dim_pilot	INT PRIMARY KEY	,
-    pilot_name		NVARCHAR(100)
-);
-GO
 
-
-
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'FactFlight')
+    BEGIN
 CREATE TABLE FactFlight (
     id_fact_flight INT IDENTITY(1,1) PRIMARY KEY,
     passenger INT,
@@ -76,5 +74,5 @@ CREATE TABLE FactFlight (
         REFERENCES DimFlightArrival(id_dim_flight_arrival),
     CONSTRAINT FK_FactFlight_Pilot FOREIGN KEY (pilot) 
         REFERENCES DimPilot(id_dim_pilot)
-);
-GO
+)
+END;
