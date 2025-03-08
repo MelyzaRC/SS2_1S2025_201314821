@@ -114,11 +114,271 @@
 
 ## Proceso ETL 
 
+> <img src="https://cdn-icons-png.flaticon.com/512/9850/9850908.png" alt="drawing" width="150"> 
+>
+> El proceso ***ETL (Extract, Transform, Load)*** es un método utilizado en la integración de datos para extraer información de diversas fuentes, transformarla según las necesidades del negocio y cargarla en un destino, como un almacén de datos. Extracción implica recuperar datos de bases de datos, APIs o archivos. Transformación aplica reglas, limpieza y agregaciones para estructurar los datos. Carga transfiere los datos procesados al destino final para su análisis. ETL es clave en business intelligence y big data, asegurando calidad y coherencia en los datos utilizados para la toma de decisiones empresariales.
+
 ## Extracción 
+
+- Código *python* utilizado para la extracción de datos desde el archivo origen. 
+
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **extraccion.py**  
+
+```
+import pandas as pd
+from constantes import COLORES, FIN_LINEA
+
+def extraer():
+    path = input("INGRESE EL PATH DEL ARCHIVO CSV o presione ENTER [data.csv]: ")
+    if(path == ""):
+        path = "data.csv"
+    try:
+        df = pd.read_csv(path)
+        print("\n" + COLORES["verde"] + str(len(df)) +  " DATOS EXTRAÍDOS CON ÉXITO\n\n" + FIN_LINEA)
+        print(df)
+        print("\n") 
+        return df
+    except Exception as e:
+        print(f"ERROR AL EXTRAER INFORMACIÓN DEL ARCHIVO: {e}")
+        return None
+```
+
 
 ## Transformación 
 
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **transformacion.py**  
+
+```
+import pandas as pd 
+from constantes import COLORES, FIN_LINEA
+
+def parse_dates(date_str):
+        for fmt in ('%m/%d/%Y', '%m-%d-%Y'):
+            try:
+                return pd.to_datetime(date_str, format=fmt)
+            except ValueError:
+                continue
+        return pd.NaT 
+
+def transformar(df): 
+    df['Arrival Airport'] = df['Arrival Airport'].replace(["0", "-"], "No especificado")
+    # ----------------------------------------------------------------------
+    # PILOTO  
+    # ----------------------------------------------------------------------
+    dim_pilot = df[['Pilot Name']].drop_duplicates().copy()
+    dim_pilot['id_dim_pilot'] = range(1, len(dim_pilot) + 1)
+    print(COLORES["verde"] +"")
+    print("dim_pilot: ", len(dim_pilot) , " registros",FIN_LINEA)
+    print(dim_pilot.head())
+    
+    # ----------------------------------------------------------------------
+    # ARRIVAL AIRPORT
+    # ----------------------------------------------------------------------
+    dim_flight_arrival = df[['Arrival Airport']].drop_duplicates().copy()
+    dim_flight_arrival['id_dim_flight_arrival'] = range(1, len(dim_flight_arrival) + 1)
+    print(COLORES["verde"] +"")
+    print("dim_flight_arrival: ", len(dim_flight_arrival) , " registros",FIN_LINEA)
+    print(dim_flight_arrival.head())
+
+    # ----------------------------------------------------------------------
+    # DEPARTURE TIME
+    # ----------------------------------------------------------------------
+    df['Departure Date'] = df['Departure Date'].apply(parse_dates)
+    dim_departure_time = df[['Departure Date']].drop_duplicates().copy()
+    dim_departure_time['id_dim_departure_time'] = range(1, len(dim_departure_time) + 1)
+    dim_departure_time['year']  = dim_departure_time['Departure Date'].dt.year
+    dim_departure_time['month'] = dim_departure_time['Departure Date'].dt.month
+    dim_departure_time['day']   = dim_departure_time['Departure Date'].dt.day
+    print(COLORES["verde"] +"")
+    print("dim_departure_time: ", len(dim_departure_time) , " registros",FIN_LINEA)
+    print(dim_departure_time.head())
+
+    # ----------------------------------------------------------------------
+    # FLIGHT DEPARTURE
+    # ----------------------------------------------------------------------
+    dim_flight_departure = df[['Airport Name', 'Airport Country Code', 'Country Name', 'Airport Continent', 'Continents']].drop_duplicates().copy()
+    dim_flight_departure['id_dim_flight_departure'] = range(1, len(dim_flight_departure) + 1)
+    dim_flight_departure = dim_flight_departure.drop_duplicates(subset=['Airport Name'])
+    print(COLORES["verde"] +"")
+    print("dim_flight_departure: ", len(dim_flight_departure) , " registros", FIN_LINEA)
+    print(dim_flight_departure.head())
+
+    # ----------------------------------------------------------------------
+    # PASSENGER
+    # ----------------------------------------------------------------------
+    
+    dim_passenger = df[['Passenger ID', 'First Name', 'Last Name', 'Gender', 'Age', 'Nationality']].drop_duplicates().copy()
+    dim_passenger['id_dim_passenger'] = range(1, len(dim_passenger) + 1)
+    print(COLORES["verde"] +"")
+    print("dim_passenger: ", len(dim_passenger) , " registros", FIN_LINEA)
+    print(dim_passenger.head())
+    print("\n")
+
+    # ----------------------------------------------------------------------
+    # FLIGHTS
+    # ----------------------------------------------------------------------
+    df['pilot']           = df['Pilot Name'].map(dim_pilot.set_index('Pilot Name')['id_dim_pilot'])
+    df['departure_time']   = df['Departure Date'].map(dim_departure_time.set_index('Departure Date')['id_dim_departure_time'])
+    df['passenger']   = df['Passenger ID'].map(dim_passenger.set_index('Passenger ID')['id_dim_passenger'])
+    df['flight_departure']   = df['Airport Name'].map(dim_flight_departure.set_index('Airport Name')['id_dim_flight_departure'])
+    df['flight_arrival']   = df['Arrival Airport'].map(dim_flight_arrival.set_index('Arrival Airport')['id_dim_flight_arrival'])
+    df['status'] = df['Flight Status']
+    fact_flight = df[['passenger', 'pilot','departure_time','flight_departure', 'flight_arrival','status']].copy()
+    fact_flight['id_fact_flight'] = range(1, len(fact_flight) + 1)
+    print(COLORES["verde"] +"")
+    print("dim_passenger: ", len(fact_flight) , " registros", FIN_LINEA)
+    print(fact_flight.head())
+    print("\n")
+
+    return [dim_pilot, dim_departure_time,dim_flight_arrival, dim_flight_departure, dim_passenger, fact_flight]
+```
+
 ## Carga 
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **carga.py**  
+
+```
+from tqdm import tqdm
+from constantes import COLORES, FIN_LINEA   # type: ignore
+import db as database                       # type: ignore
+
+
+def cargar(data):
+    dim_pilot               = data[0]
+    dim_departure_time      = data[1]
+    dim_flight_arrival      = data[2]
+    dim_flight_departure    = data[3]
+    dim_passenger           = data[4]
+    fact_flight             = data[5]
+    errores = 0
+
+    try: 
+        conn = database.conectar_db()
+        cursor = conn.cursor()
+        # ----------------------------------------------------------------------
+        # PILOTO  
+        # ----------------------------------------------------------------------
+        errores = 0
+        for _, row in tqdm(dim_pilot.iterrows(), total=len(dim_pilot), desc=COLORES["verde"] + "CARGANDO DIM_PILOTOS:         " + FIN_LINEA):
+            try:
+                cursor.execute("""
+                IF NOT EXISTS (SELECT 1 FROM DimPilot WHERE id_dim_pilot = ?)
+                BEGIN
+                    INSERT INTO DimPilot (id_dim_pilot, pilot_name)
+                    VALUES (?, ?)
+                END
+            """, row['id_dim_pilot'], row['id_dim_pilot'], row['Pilot Name'])
+            except Exception as e:
+                errores += 1
+                continue 
+        print("PILOTOS           [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+        
+
+
+        # ----------------------------------------------------------------------
+        # DEPARTURE TIME
+        # ----------------------------------------------------------------------
+        errores = 0
+        for _, row in tqdm(dim_departure_time.iterrows(), total=len(dim_departure_time), desc=COLORES["verde"] + "CARGANDO DIM_DEPARTURE_TIME:  " + FIN_LINEA):
+            try:
+                cursor.execute("""
+                    IF NOT EXISTS (SELECT 1 FROM DimDepartureTime WHERE id_dim_departure_time = ?)
+                    BEGIN
+                        INSERT INTO DimDepartureTime (id_dim_departure_time, [date], [year], [month], [day])
+                        VALUES (?, ?, ?, ?, ?)
+                    END
+                """, row['id_dim_departure_time'], row['id_dim_departure_time'], row['Departure Date'], row['year'], row['month'], row['day'])
+            except Exception as e:
+                errores += 1
+                continue 
+        print("DEPARTURE TIME    [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+
+        # ----------------------------------------------------------------------
+        # FLIGHT ARRIVAL
+        # ----------------------------------------------------------------------
+        errores = 0
+        for _, row in tqdm(dim_flight_arrival.iterrows(), total=len(dim_flight_arrival), desc=COLORES["verde"] + "CARGANDO DIM_FLIGHT_ARRIVAL:  " + FIN_LINEA):
+            try:
+                cursor.execute("""
+                    IF NOT EXISTS (SELECT 1 FROM DimFlightArrival WHERE id_dim_flight_arrival = ?)
+                    BEGIN
+                        INSERT INTO DimFlightArrival (id_dim_flight_arrival, [airport_name])
+                        VALUES (?, ?)
+                    END
+                """, row['id_dim_flight_arrival'], row['id_dim_flight_arrival'], row['Arrival Airport'])
+            except Exception as e:
+                errores += 1
+                continue 
+        print("FLIGHT ARRIVAL    [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+        
+        # ----------------------------------------------------------------------
+        # FLIGHT DEPARTURE
+        # ----------------------------------------------------------------------
+        errores = 0
+        for _, row in tqdm(dim_flight_departure.iterrows(), total=len(dim_flight_departure), desc=COLORES["verde"] + "CARGANDO DIM_FLIGHT_DEPARTURE:" + FIN_LINEA):
+            try:
+                cursor.execute("""
+                    IF NOT EXISTS (SELECT 1 FROM DimFlightDeparture WHERE id_dim_flight_departure = ?)
+                    BEGIN
+                        INSERT INTO DimFlightDeparture (id_dim_flight_departure, [airport_name], [airport_country_code], [country_name], [airport_continent], [continents])
+                        VALUES (?, ?, ?, ?, ?, ?)
+                    END
+                """, row['id_dim_flight_departure'], row['id_dim_flight_departure'], row['Airport Name'], row['Airport Country Code'], row['Country Name'], row['Airport Continent'], row['Continents'])
+            except Exception as e:
+                errores += 1
+                continue 
+        print("FLIGHT DEPARTURE  [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+       
+        # ----------------------------------------------------------------------
+        # PASSENGER
+        # ---------------------------------------------------------------------- 
+        errores = 0                      
+        for _, row in tqdm(dim_passenger.iterrows(), total=len(dim_passenger), desc=COLORES["verde"] + "CARGANDO DIM_PASSENGER:       " + FIN_LINEA):
+            try:
+                cursor.execute("""
+                    IF NOT EXISTS (SELECT 1 FROM DimPassenger WHERE id_dim_passenger = ?)
+                    BEGIN
+                        INSERT INTO DimPassenger (id_dim_passenger, [passenger_id], [first_name], [last_name], [gender], [age], [nationality])
+                        VALUES (?, ?, ?, ?, ?, ?, ?)
+                    END
+                """, row['id_dim_passenger'], row['id_dim_passenger'], row['Passenger ID'], row['First Name'], row['Last Name'], row['Gender'], row['Age'], row['Nationality'])
+            
+            except Exception as e:
+                errores += 1
+                continue  
+        print("PASSENGER         [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+
+        # ----------------------------------------------------------------------
+        # FLIGHTS
+        # ----------------------------------------------------------------------
+        errores = 0
+        for _, row in tqdm(fact_flight.iterrows(), total=len(fact_flight), desc=COLORES["verde"] + "CARGANDO FACT FLIGHTS:        " + FIN_LINEA):
+            try:
+                cursor.execute("""
+                    INSERT INTO FactFlight ([passenger], [departure_time], [flight_departure], [flight_arrival], [pilot], [status])
+                        VALUES (?, ?, ?, ?, ?,?)
+                """, row['passenger'], row['departure_time'], row['flight_departure'], row['flight_arrival'], row['pilot'], row['status'])
+            
+            except Exception as e:
+                errores  += 1
+                print("Error al insertar datos en la fila:")
+                print(row)
+                print(f"Error: {e}")
+                input("Presione ENTER para continuar")
+                continue  
+        print("FLIGHTS         [" + COLORES["azul"] + "OK" + FIN_LINEA + "]")
+        print("ERRORES         " , COLORES["rojo"] , errores , FIN_LINEA , "\n")
+
+    except Exception as e:
+        print("Error al insertar datos en la fila:")
+        print(row)
+        print(f"Error: {e}")
+    
+```
 
 ## Consultas analíticas 
 
