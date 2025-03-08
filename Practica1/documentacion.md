@@ -47,7 +47,7 @@
 |*month*|INT||Mes en que se realiza el vuelo||
 |*day*|INT||Día en que se realiza el vuelo||
 
-<img src="images/tb5.png" alt="drawing" width="500"> 
+<img src="images/tbltime.png" alt="drawing" width="500"> 
 
 **Tabla DimFlightArrival**
 |Campo|Tipo de dato|Llave|Descripción|
