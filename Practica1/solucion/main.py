@@ -132,7 +132,7 @@ def consulta2():
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
     print(COLORES["amarillo"] + "CONSULTA 2 - NACIONALIDADES CON SU AÑO DE MAYOR FECHA DE SALIDA"           + FIN_LINEA)
     print(COLORES["amarillo"] + "------------------------------------------------------------------"        + FIN_LINEA)
-    
+    consultas.consulta2()
     presione_enter_consultas()
 
 # VUELOS POR PAIS: MUESTRA LOS VUELOS POR PAIS

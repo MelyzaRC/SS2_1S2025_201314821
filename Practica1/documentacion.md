@@ -102,6 +102,8 @@
 
 <img src="images/imagen1.png" alt="drawing" width="800"> 
 
+
+
 **Descripción de las relaciones entre las dimensiones y la tabla de hechos**
 
 |Relación|Descripción|Representación|
@@ -111,6 +113,106 @@
 |**dim_departure_flight ➡️ fact_flights**|Esta relación es la que nos indica la información de la salida del vuelo, nos puede ayudar a tomar decisiones en base|<img src="images/rel3.png" alt="drawing" width="500">|
 |**dim_flight_arrival ➡️ fact_flights**|Esta relación nos brinda los datos del destino del vuelo. Con esta información podemos conocer los destinos más visitados y tomar decisiones en base a ello, por ejemplo, invertir más en turismo, entre otras cosas.|<img src="images/rel5.png" alt="drawing" width="500"> |
 |**dim_pilo ➡️ fact_flights**|Es la información del piloto que dirige el vuelo. Es una dimensión que nos puede ayudar a deducir comisiones, metas de vuelo, determinar rangos, entre otras cosas relacionadas a los pilotos.|<img src="images/rel2.png" alt="drawing" width="500"> |
+
+- **Script para la creación de la base de datos**
+
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="50"> **script_creacion_db.sql**  
+
+```
+CREATE DATABASE FlightDataWarehouse;
+
+USE FlightDataWarehouse;
+
+CREATE TABLE DimPassenger (
+	id_dim_passenger  INT PRIMARY KEY,
+    passenger_id NVARCHAR(50) ,
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
+    gender NVARCHAR(10),
+    age INT,
+    nationality NVARCHAR(50)
+);
+
+CREATE TABLE DimFlightDeparture (
+    id_dim_flight_departure INT PRIMARY KEY,
+    airport_name NVARCHAR(100),
+    airport_country_code NVARCHAR(10),
+    country_name NVARCHAR(50),
+    airport_continent NVARCHAR(50),
+    continents NVARCHAR(50)
+);
+
+CREATE TABLE DimFlightArrival (
+    id_dim_flight_arrival INT PRIMARY KEY,
+    airport_name NVARCHAR(100)
+);
+
+CREATE TABLE DimDepartureTime (
+    id_dim_departure_time INT PRIMARY KEY,
+    [date] DATE,
+    [year] INT,
+    [month] INT,
+    [day] INT
+);
+
+CREATE TABLE DimPilot (
+    id_dim_pilot	INT PRIMARY KEY	,
+    pilot_name		NVARCHAR(100)
+);
+
+CREATE TABLE FactFlight (
+    id_fact_flight INT IDENTITY(1,1) PRIMARY KEY,
+    passenger INT,
+    departure_time INT,
+    flight_departure INT,
+    flight_arrival INT,
+    pilot INT,
+    status NVARCHAR(25),
+    CONSTRAINT FK_FactFlight_Passenger FOREIGN KEY (passenger) 
+        REFERENCES DimPassenger(id_dim_passenger),
+    CONSTRAINT FK_FactFlight_DepartureDate FOREIGN KEY (departure_time) 
+        REFERENCES DimDepartureTime(id_dim_departure_time),
+    CONSTRAINT FK_FactFlight_DepartureAirport FOREIGN KEY (flight_departure) 
+        REFERENCES DimFlightDeparture(id_dim_flight_departure),
+    CONSTRAINT FK_FactFlight_ArrivalAirport FOREIGN KEY (flight_arrival) 
+        REFERENCES DimFlightArrival(id_dim_flight_arrival),
+    CONSTRAINT FK_FactFlight_Pilot FOREIGN KEY (pilot) 
+        REFERENCES DimPilot(id_dim_pilot)
+);
+```
+
+## Opciones del modelo de datos 
+
+- **Borrar modelo**
+
+Es la primera opción del menú general, esta opción valida si existe un modelo para borrar. En el caso de que si exista, lo elimina, de lo contrario, muestra un mensaje de error. 
+
+<img src="images/bm11.png"  alt="drawing"> 
+
+Podemos observar el caso en el que no existe: 
+
+<img src="images/bm22.png"  alt="drawing"> 
+
+Y ahora podemos ver el caso en el que si existe el modelo, entonces procede a borrar las tablas pertenecientes a él. 
+
+<img src="images/bm33.png"  alt="drawing"> 
+
+
+- **Crear modelo**
+
+Similar a la opción de borrar modelo, descrita anteriormente, funciona la opción crear modelo. Esta es la segunda opción del menú general. 
+
+<img src="images/cre1.png"  alt="drawing"> 
+
+
+Podemos ver qué pasa cuando ya existe el modelo.
+
+<img src="images/cre2.png"  alt="drawing"> 
+
+Ahora podemos ver lo que indica cuando el modelo aún no existe.
+
+<img src="images/cre3.png"  alt="drawing"> 
+
 
 ## Proceso ETL 
 
@@ -479,14 +581,26 @@ def consulta1():
 def consulta2(): 
     conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    cursor.execute("""
+        SELECT x.year, x.month, x.nationality  FROM (SELECT b.nationality, c.month, c.year, ROW_NUMBER() OVER (PARTITION BY b.nationality ORDER BY c.year DESC, c.month DESC) AS rn
+        FROM dbo.FactFlight a, dbo.DimPassenger b, dbo.DimDepartureTime c
+        WHERE a.passenger = b.id_dim_passenger
+        AND a.departure_time = c.id_dim_departure_time) x 
+        where x.rn = 1
+        ;
+    """)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    print(COLORES["verde"] ,"\nAÑO      MES     NACIONALIDAD" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.year, "\t", row.month, "\t", row.nationality)
+    print("\n")
     cerrar_conexion_db(conn)
 ```
 
 <img src="images/consulta2.png"  alt="drawing"> 
+
+
 
 - **CONSULTA 3:** COUNT de vuelos por país
 
@@ -591,18 +705,27 @@ def consulta6():
 - **CONSULTA 7:** Top 5 de los continentes más visitados
 
 ```
-def consulta7(): 
-    conn = conectar_db()
+conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    cursor.execute("""
+        SELECT TOP 5 b.continents AS CONTINENTE, count(*) AS VISITAS
+        FROM dbo.FactFlight a, dbo.DimFlightDeparture b 
+        where a.flight_departure = b.id_dim_flight_departure
+        GROUP by b.continents
+        ORDER BY VISITAS DESC 
+        ;
+    """)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    print(COLORES["verde"] ,"\nVISITAS\t CONTINENTE" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.VISITAS, "\t", row.CONTINENTE)
+    print("\n")
     cerrar_conexion_db(conn)
 ```
 
 
-<img src="images/consulta2.png"  alt="drawing"> 
+<img src="images/consulta7.png"  alt="drawing"> 
 
 - **CONSULTA 8:** Top 5 de edades divido por género que más viajan
 

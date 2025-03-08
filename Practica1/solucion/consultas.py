@@ -71,10 +71,20 @@ def consulta1():
 def consulta2(): 
     conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    cursor.execute("""
+        SELECT x.year, x.month, x.nationality  FROM (SELECT b.nationality, c.month, c.year, ROW_NUMBER() OVER (PARTITION BY b.nationality ORDER BY c.year DESC, c.month DESC) AS rn
+        FROM dbo.FactFlight a, dbo.DimPassenger b, dbo.DimDepartureTime c
+        WHERE a.passenger = b.id_dim_passenger
+        AND a.departure_time = c.id_dim_departure_time) x 
+        where x.rn = 1
+        ;
+    """)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    print(COLORES["verde"] ,"\nAÑO      MES     NACIONALIDAD" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.year, "\t", row.month, "\t", row.nationality)
+    print("\n")
     cerrar_conexion_db(conn)
 
 def consulta3(): 
@@ -156,10 +166,20 @@ def consulta6():
 def consulta7(): 
     conn = conectar_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM actor where name_actor LIKE 'JOHN NA%'")
+    cursor.execute("""
+        SELECT TOP 5 b.continents AS CONTINENTE, count(*) AS VISITAS
+        FROM dbo.FactFlight a, dbo.DimFlightDeparture b 
+        where a.flight_departure = b.id_dim_flight_departure
+        GROUP by b.continents
+        ORDER BY VISITAS DESC 
+        ;
+    """)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row.id_actor)
+    print(COLORES["verde"] ,"\nVISITAS\t CONTINENTE" , FIN_LINEA)
+    print(COLORES["verde"] + "------------------------------------------------------------------"        + FIN_LINEA)
+    for row in rows: 
+        print(row.VISITAS, "\t", row.CONTINENTE)
+    print("\n")
     cerrar_conexion_db(conn)
 
 def consulta8(): 
