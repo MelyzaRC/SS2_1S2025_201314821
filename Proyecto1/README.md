@@ -100,7 +100,115 @@ A continuación, se presenta la arquitectura de la solución propuesta durante e
 
 ### Estrategia de tablas pivote 
 
-Para hacer más sencillo el proceso ETL, se utilizó la estrategia de creación de tablas *pivote*, estas tablas se definen como herramientas auxiliares que nos ayudarán a realizar de mejor manera el proceso de transformación. 
+Para hacer más sencillo el proceso ETL, se utilizó la estrategia de creación de tablas *pivote*, estas tablas se definen como herramientas auxiliares que nos ayudarán a realizar de mejor manera el proceso de transformación, ya que cargamos todos los datos en el estado original en que fueron definidos en el archivo fuente, esto, nos permitirá detectar errores en los registros y áreas de transformación. 
+
+A continuación, se detalla los motores de base de datos utilizados y la definición de las diferentes tablas utilizadas para la implementación de la estrategia de tablas pivote en los dos fabricantes de base de datos utilizados. 
+
+- **SQL Server**
+
+<img src="https://logonoid.com/images/sql-server-logo.png" alt="drawing" width="150"> 
+
+**DDL de las tablas:**
+```
+CREATE TABLE compras_pivote (
+	Fecha				NVARCHAR(200)	NULL	,  
+	CodProveedor		NVARCHAR(200)	NULL	,  
+	NombreProveedor		NVARCHAR(200)	NULL	,  
+	DireccionProveedor	NVARCHAR(200)	NULL	,  
+	NumeroProveedor		NVARCHAR(200)	NULL	,  
+	WebProveedor		NVARCHAR(200)	NULL	,  
+	CodProducto			NVARCHAR(200)	NULL	,  
+	NombreProducto		NVARCHAR(200)	NULL	,  
+	MarcaProducto		NVARCHAR(200)	NULL	,  
+	Categoria			NVARCHAR(200)	NULL	,  
+	SodSuSursal			NVARCHAR(200)	NULL	,  
+	NombreSucursal		NVARCHAR(200)	NULL	,  
+	DireccionSucursal	NVARCHAR(200)	NULL	,  
+	Region				NVARCHAR(200)	NULL	,  
+	Departamento		NVARCHAR(200)	NULL	,  
+	Unidades			NVARCHAR(200)	NULL	,  
+	CostoU				NVARCHAR(200)	NULL 
+);
+
+CREATE TABLE ventas_pivote (
+	Fecha				NVARCHAR(200)	NULL	,  
+	CodigoCliente		NVARCHAR(200)	NULL	,  
+	NombreCliente		NVARCHAR(200)	NULL	,  
+	TipoCliente			NVARCHAR(200)	NULL	,  
+	DireccionCliente	NVARCHAR(200)	NULL	,  
+	NumeroCliente		NVARCHAR(200)	NULL	,  
+	CodVendedor			NVARCHAR(200)	NULL	,  
+	NombreVendedor		NVARCHAR(200)	NULL	,  
+	Vacacionista		NVARCHAR(200)	NULL	,  
+	CodProducto			NVARCHAR(200)	NULL	,  
+	NombreProducto		NVARCHAR(200)	NULL	,  
+	MarcaProducto		NVARCHAR(200)	NULL	,  
+	Categoria			NVARCHAR(200)	NULL	,  
+	SodSuSursal			NVARCHAR(200)	NULL	,  
+	NombreSucursal		NVARCHAR(200)	NULL	,  
+	DireccionSucursal	NVARCHAR(200)	NULL	,  
+	Region				NVARCHAR(200)	NULL	,  
+	Departamento		NVARCHAR(200)	NULL	,  
+	Unidades			NVARCHAR(200)	NULL	,  
+	PrecioUnitario		NVARCHAR(200)	NULL  
+);
+```
+
+- **Postgres**
+
+<img src="https://miro.medium.com/v2/resize:fit:512/0*ioDeujW3euLCfXew.png" alt="drawing" width="200"> 
+
+**DDL de las tablas:**
+
+```
+CREATE TABLE compras_pivote (
+    fecha                VARCHAR(200),  
+    cod_proveedor        VARCHAR(200),  
+    nombre_proveedor     VARCHAR(200),  
+    direccion_proveedor  VARCHAR(200),  
+    numero_proveedor     VARCHAR(200),  
+    web_proveedor        VARCHAR(200),  
+    cod_producto         VARCHAR(200),  
+    nombre_producto      VARCHAR(200),  
+    marca_producto       VARCHAR(200),  
+    categoria           VARCHAR(200),  
+    sod_sucursal        VARCHAR(200), 
+    nombre_sucursal     VARCHAR(200),  
+    direccion_sucursal  VARCHAR(200),  
+    region              VARCHAR(200),  
+    departamento        VARCHAR(200),  
+    unidades            VARCHAR(200), 
+    costo_unitario      VARCHAR(200) 
+);
+
+CREATE TABLE ventas_pivote (
+    fecha                VARCHAR(200),  
+    codigo_cliente       VARCHAR(200),  
+    nombre_cliente       VARCHAR(200),  
+    tipo_cliente         VARCHAR(200),  
+    direccion_cliente    VARCHAR(200),  
+    numero_cliente       VARCHAR(200),  
+    cod_vendedor        VARCHAR(200),  
+    nombre_vendedor     VARCHAR(200),  
+    vacacionista        VARCHAR(200),  
+    cod_producto        VARCHAR(200),  
+    nombre_producto     VARCHAR(200),  
+    marca_producto      VARCHAR(200),  
+    categoria           VARCHAR(200),  
+    sod_sucursal        VARCHAR(200),
+    nombre_sucursal     VARCHAR(200),  
+    direccion_sucursal  VARCHAR(200),  
+    region              VARCHAR(200),  
+    departamento        VARCHAR(200),  
+    unidades            VARCHAR(200),
+    precio_unitario     VARCHAR(200)
+);
+```
+
+
+> **NOTA:** 
+>
+>***DDL (Data Definition Language)*** es un conjunto de instrucciones en bases de datos que definen la estructura y organización de los datos. Incluye comandos como **CREATE, ALTER** y **DROP**, que se utilizan para crear, modificar o eliminar tablas, índices y otros objetos en la base de datos.
 
 ### Extracción de datos
 
