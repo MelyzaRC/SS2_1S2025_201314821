@@ -20,11 +20,15 @@
 
 ## Descripción general 
 
-> <img src="https://cdn-icons-png.flaticon.com/512/862/862856.png" alt="drawing" width="200"> 
+> <img src="https://png.pngtree.com/png-vector/20240719/ourmid/pngtree-food-app-icon-vector-png-image_7228673.png" alt="drawing" width="250"> 
 >
 >***SG-Food***, una megaempresa dedicada a la compra, distribución y comercialización de productos de diversas marcas y categorías que requiere una solución de *Business Intelligence* para optimizar sus procesos de análisis de ventas e inventarios. Debido al crecimiento significativo en sus operaciones, el sistema actual presenta tiempos de respuesta lentos y problemas en la base de datos principal. Este proyecto propone implementar una solución de BI que optimice los tiempos de respuesta y reduzca la carga sobre la base de datos central, permitiendo un análisis eficiente de datos de compras y ventas.
 
 ## Arquitectura de la solución 
+
+A continuación se presenta la arquitectura de la solución propuesta durante el desarrollo de este proyecto. 
+
+<img src="images/diagrama.png" alt="drawing" > 
 
 ## Tecnologías utilizadas 
 
