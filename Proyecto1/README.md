@@ -26,11 +26,11 @@
 
 ## Arquitectura de la solución 
 
-A continuación se presenta la arquitectura de la solución propuesta durante el desarrollo de este proyecto. 
+A continuación, se presenta la arquitectura de la solución propuesta durante el desarrollo de este proyecto. 
 
 <img src="images/diagrama.png" alt="drawing" > 
 
-## Tecnologías utilizadas 
+## Resumen de tecnologías utilizadas 
 
 | Tecnología | Versión | Descripción | 
 | -- | -- | -- |
@@ -44,6 +44,60 @@ A continuación se presenta la arquitectura de la solución propuesta durante el
 ## Proceso ETL 
 
 ### Orígen de datos 
+
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="30"> **.comp** 
+
+>Los archivos con la extensión ***.comp*** contienen las información relacionada con las diferentes adquisiciones o compras realizadas a proveedores por parte de ***SG-Food***.
+
+
+|Campos del archivo| Ejemplo del campo|
+|--|--|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> Fecha|11/01/2020|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> CodProveedor|P0001|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> NombreProveedor|CESAR ADRIAN GERONIS ROMERO|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> DireccionProveedor|10 avenida 4-54 zona 12|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> NumeroProveedor|42022451|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> WebProveedor|S|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> CodProducto|AC00005|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> NombreProducto|Gaseosa Postobón|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> MarcaProducto|BRETANA
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> Categoria|Bebidas|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> SodSucursal|S0001|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> NombreSucursal|Sucursal1|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> DireccionSucursal|kilometro 20 carretera al pacifico, parque industrial unisur, local no. 1, delta barcenas,|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> Region|Suroccidente1|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> Departamento|Quetzaltenango|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> Unidades|583|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png"  alt="drawing" width="15"> CostoU|508.35|
+
+<img src="https://cdn-icons-png.flaticon.com/512/7600/7600437.png"  alt="drawing" width="30"> **.vent** 
+
+>Los archivos con extensión ***.vent*** contienen la información relacionada con las ventas realizadas por la megacorporación ***SG-Food*** a los diferentes clientes con los que cuentan en sus carteras. 
+
+|Campos del archivo| Ejemplo del campo|
+|--|--|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Fecha|14/01/2020|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> CodigoCliente|C0001|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> NombreCliente|Jose Arturo Bayardi Lozano|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> TipoCliente|Minorista|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> DireccionCliente|calzada atanasio tzul 22-00 zona 12, el cortijo ii, oficina 100|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> NumeroCliente|69555645|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> CodVendedor|V0001|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> NombreVendedor|Nelson Mario Caffera Morandi|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Vacacionista|1|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> CodProducto|AC00003|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> NombreProducto|Queso Camembert kaserei champiñón |
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> MarcaProducto|MONTICELLO|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Categoria|Charcutería|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> SodSucursal|S0001|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> NombreSucursal|Sucursal1|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> DireccionSucursal|kilometro 20 carretera al pacifico, parque industrial unisur, local no. 1, delta barcenas,|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Region|Suroccidente1|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Departamento|Quetzaltenango|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> Unidades|34|
+|<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign-check-icon.png/800px-Sign-check-icon.png" alt="drawing" width="15"> PrecioUnitario|398.27|
+
+
 ### Estrategia de tablas pivote 
 
 Para hacer más sencillo el proceso ETL, se utilizó la estrategia de creación de tablas *pivote*, estas tablas se definen como herramientas auxiliares que nos ayudarán a realizar de mejor manera el proceso de transformación. 
