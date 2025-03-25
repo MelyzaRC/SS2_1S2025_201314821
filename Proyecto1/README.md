@@ -206,7 +206,8 @@ CREATE TABLE ventas_pivote (
 ```
 
 
-> **NOTA:** 
+
+><img src="https://cdn-icons-png.flaticon.com/512/561/561739.png" alt="drawing" width="25">  **NOTA:** 
 >
 >***DDL (Data Definition Language)*** es un conjunto de instrucciones en bases de datos que definen la estructura y organización de los datos. Incluye comandos como **CREATE, ALTER** y **DROP**, que se utilizan para crear, modificar o eliminar tablas, índices y otros objetos en la base de datos.
 
