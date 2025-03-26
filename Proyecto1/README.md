@@ -108,6 +108,13 @@ A continuación, se detalla los motores de base de datos utilizados y la definic
 
 <img src="https://logonoid.com/images/sql-server-logo.png" alt="drawing" width="150"> 
 
+
+|Tabla|Descripción|
+|--|--|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **SQL Server**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **SQL Server**.|
+
+
 **DDL de las tablas:**
 ```
 CREATE TABLE compras_pivote (
@@ -157,6 +164,11 @@ CREATE TABLE ventas_pivote (
 - **Postgres**
 
 <img src="https://miro.medium.com/v2/resize:fit:512/0*ioDeujW3euLCfXew.png" alt="drawing" width="200"> 
+
+|Tabla|Descripción|
+|--|--|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **Postgres** con **Supabase**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **Postgres** con **Supabase**.|
 
 **DDL de las tablas:**
 
