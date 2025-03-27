@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{A0CE02AB-23D1-47D4-A667-B15159F62429}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{8E8D6754-1452-41A0-8C0E-488D31AFDF11}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -187,6 +187,18 @@
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MELYZA-PC\SQLEXPRESS.pivote]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{65FFB28B-67B6-463F-BB7A-F932FFE91D15}"
+      DTS:ObjectName="MELYZA-PC\SQLEXPRESS.pivote">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MELYZA-PC\SQLEXPRESS;Initial Catalog=pivote;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{65FFB28B-67B6-463F-BB7A-F932FFE91D15}MELYZA-PC\SQLEXPRESS.pivote;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -505,6 +517,131 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">ISNULL(CodProveedor) || TRIM(CodProveedor) == "" ? "P000" : TRIM(CodProveedor)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column.Inputs[Derived Column Input].Columns[DireccionProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionProveedor"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionProveedor]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionProveedor]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(DireccionProveedor,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column.Inputs[Derived Column Input].Columns[NumeroProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NumeroProveedor"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NumeroProveedor]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING]("[^0-9]",#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NumeroProveedor]},1) == 0 ? #{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NumeroProveedor]} : NULL(DT_WSTR,200)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING("[^0-9]",NumeroProveedor,1) == 0 ? NumeroProveedor : NULL(DT_WSTR,200)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column.Inputs[Derived Column Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodProducto"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProducto]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProducto]}) || [TRIM](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProducto]}) == "" ? "PROD000" : [TRIM](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProducto]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(CodProducto) || TRIM(CodProducto) == "" ? "PROD000" : TRIM(CodProducto)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column.Inputs[Derived Column Input].Columns[DireccionSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionSucursal"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]},"\"","")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(DireccionSucursal,"\"","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column.Inputs[Derived Column Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Region"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Region]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACE](#{Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Region]},"Metropolitala","Metropolitana")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(Region,"Metropolitala","Metropolitana")</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -3820,57 +3957,33 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Flujo de datos\Flat File Source"
+          TopLeft="593.833302827346,33.76666667872" />
+        <NodeLayout
           Size="251.2,41.6"
           Id="Package\Flujo de datos\OLE DB Source Compras SQLServer"
           TopLeft="46.6666641169124,35.533333086239" />
         <NodeLayout
-          Size="120,41.6"
-          Id="Package\Flujo de datos\Union All"
-          TopLeft="372.999979920686,235.166665069593" />
+          Size="128.8,41.6"
+          Id="Package\Flujo de datos\Union All 1"
+          TopLeft="451.089718943288,594.758972529642" />
         <NodeLayout
           Size="248.8,42.4"
           Id="Package\Flujo de datos\ODBC Source Compras Postgres"
           TopLeft="309.999983062348,34.666666425599" />
         <NodeLayout
-          Size="151.2,41.6"
-          Id="Package\Flujo de datos\Flat File Source"
-          TopLeft="593.833302827346,33.76666667872" />
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[OLE DB Source Output]"
-          TopLeft="172.266664116912,77.133333086239">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="232.733315803774,158.033331983354"
-              Start="0,0"
-              End="232.733315803774,150.533331983354">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,99.065216510883" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,99.065216510883"
-                    Point2="0,103.065216510883"
-                    Point3="4,103.065216510883" />
-                  <mssgle:LineSegment
-                    End="228.733315803774,103.065216510883" />
-                  <mssgle:CubicBezierSegment
-                    Point1="228.733315803774,103.065216510883"
-                    Point2="232.733315803774,103.065216510883"
-                    Point3="232.733315803774,107.065216510883" />
-                  <mssgle:LineSegment
-                    End="232.733315803774,150.533331983354" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="108.366657901887,108.065216510883,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="152.8,41.6"
+          Id="Package\Flujo de datos\Derived Column"
+          TopLeft="358.269211194264,321.799997762243" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Flujo de datos\Union All"
+          TopLeft="372.999979920686,235.166665069593" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Flujo de datos\Data Conversion"
+          TopLeft="360.89741617887,403.179485390023" />
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[ODBC Source Output]"
           TopLeft="433.699981491517,77.066666425599">
@@ -3931,13 +4044,69 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Flujo de datos\Derived Column"
-          TopLeft="356.60254461866,321.799997762243" />
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Derived Column Output]"
+          TopLeft="436.783313686567,363.399997762243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.77948762778"
+              Start="0,0"
+              End="0,32.27948762778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.27948762778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,8.13974381388999,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Data Conversion Output]"
+          TopLeft="438.89741617887,444.779485390023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.592302764418,149.979487139619"
+              Start="0,0"
+              End="76.592302764418,142.479487139619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.9897435698094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.9897435698094"
+                    Point2="0,74.9897435698094"
+                    Point3="4,74.9897435698094" />
+                  <mssgle:LineSegment
+                    End="72.592302764418,74.9897435698094" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.592302764418,74.9897435698094"
+                    Point2="76.592302764418,74.9897435698094"
+                    Point3="76.592302764418,78.9897435698094" />
+                  <mssgle:LineSegment
+                    End="76.592302764418,142.479487139619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="30.296151382209,79.9897435698094,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[Union All Output 1]"
-          TopLeft="433.001262269673,276.766665069593">
+          TopLeft="433.834595557475,276.766665069593">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3959,71 +4128,39 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Flujo de datos\Data Conversion"
-          TopLeft="360.89741617887,403.179485390023" />
         <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Derived Column Output]"
-          TopLeft="435.949980398765,363.399997762243">
+          Id="Package\Flujo de datos.Paths[OLE DB Source Output]"
+          TopLeft="172.266664116912,77.133333086239">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.7794876277803"
+              EndConnector="232.733315803774,158.033331983354"
               Start="0,0"
-              End="0,32.2794876277803">
+              End="232.733315803774,150.533331983354">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.2794876277803" />
+                    End="0,99.065216510883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,99.065216510883"
+                    Point2="0,103.065216510883"
+                    Point3="4,103.065216510883" />
+                  <mssgle:LineSegment
+                    End="228.733315803774,103.065216510883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="228.733315803774,103.065216510883"
+                    Point2="232.733315803774,103.065216510883"
+                    Point3="232.733315803774,107.065216510883" />
+                  <mssgle:LineSegment
+                    End="232.733315803774,150.533331983354" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,8.13974381389014,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Flujo de datos\Union All 1"
-          TopLeft="451.92305223109,593.025639208362" />
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Data Conversion Output]"
-          TopLeft="438.89741617887,444.779485390023">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57.2923027188864,148.246153818338"
-              Start="0,0"
-              End="57.2923027188864,140.746153818338">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,83.8563095635061" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,83.8563095635061"
-                    Point2="0,87.8563095635061"
-                    Point3="4,87.8563095635061" />
-                  <mssgle:LineSegment
-                    End="53.2923027188864,87.8563095635061" />
-                  <mssgle:CubicBezierSegment
-                    Point1="53.2923027188864,87.8563095635061"
-                    Point2="57.2923027188864,87.8563095635061"
-                    Point3="57.2923027188864,91.8563095635061" />
-                  <mssgle:LineSegment
-                    End="57.2923027188864,140.746153818338" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="20.6461513594432,92.8563095635061,16,16"
+              BoundingBox="108.366657901887,108.065216510883,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

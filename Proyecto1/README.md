@@ -28,7 +28,7 @@
 
 A continuación, se presenta la arquitectura de la solución propuesta durante el desarrollo de este proyecto. 
 
-<img src="images/diagrama.png" alt="drawing" > 
+<img src="images/diagrama.png" alt="drawing"  style="margin-bottom:25px"> 
 
 ## Resumen de tecnologías utilizadas 
 
@@ -106,13 +106,13 @@ A continuación, se detalla los motores de base de datos utilizados y la definic
 
 - **SQL Server**
 
-<img src="https://logonoid.com/images/sql-server-logo.png" alt="drawing" width="150"> 
+<img src="https://logonoid.com/images/sql-server-logo.png" alt="drawing" width="150" style="margin-bottom:25px"> 
 
 
 |Tabla|Descripción|
 |--|--|
-|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **SQL Server**.|
-|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **SQL Server**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100" style="margin-bottom:10px"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **SQL Server**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100" style="margin-bottom:10px"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **SQL Server**.|
 
 
 **DDL de las tablas:**
@@ -167,8 +167,8 @@ CREATE TABLE ventas_pivote (
 
 |Tabla|Descripción|
 |--|--|
-|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **Postgres** con **Supabase**.|
-|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **Postgres** con **Supabase**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100" style="margin-bottom:10px"> <br> **compras_pivote**|Tabla auxiliar para registrar los datos de las compras en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.comp***. Esta tabla está implementada en **Postgres** con **Supabase**.|
+|<img src="https://cdn-icons-png.flaticon.com/512/11784/11784642.png" alt="drawing" width="100" style="margin-bottom:10px"> <br> **ventas_pivote**|Tabla auxiliar para registrar los datos de las ventas realizadas a los clientes, en la forma en que fueron representados en los archivos de orígen de datos. Esta tabla está asociada al contenido de los archivos ***.vent***. Esta tabla está implementada en **Postgres** con **Supabase**.|
 
 **DDL de las tablas:**
 
@@ -219,19 +219,92 @@ CREATE TABLE ventas_pivote (
 
 
 
-><img src="https://cdn-icons-png.flaticon.com/512/561/561739.png" alt="drawing" width="25">  **NOTA:** 
+><img src="https://cdn-icons-png.flaticon.com/512/561/561739.png" alt="drawing" width="25" style="margin-top:25px">  **NOTA:** 
 >
 >***DDL (Data Definition Language)*** es un conjunto de instrucciones en bases de datos que definen la estructura y organización de los datos. Incluye comandos como **CREATE, ALTER** y **DROP**, que se utilizan para crear, modificar o eliminar tablas, índices y otros objetos en la base de datos.
 
 ### Extracción de datos
 
-- **Herramientas utilizadas**
+- **Limpieza de tablas pivote**
 
-**Execute SQL Task**
+Para la limpieza de tablas pivote, utilizamos la herramienta **Execute SQL TASK**, por medio de la cual podremos ejecutar las sentencias que vacían cualquier dato existente en las tablas temporales o también llamadas tablas pivote, a modo de que no existan datos anteriores y se puedan procesar unicamente los datos que tenemos actualmente en los archivos correspondientes. 
 
-<img src="images/h1.png" alt="drawing" width="200"> 
+<img src="images/herramienta1.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Tenemos dos casos distinguibles, el de ***SQL Server*** y el de ***Postgres***. 
+
+**Para SQL Server**
+
+Debemos hacer doble *click* sobre la herramienta *Execute SQL Task*, lo cual nos desplegará una ventana en la cual configuraremos la tarea a ejecutar. 
+
+<img src="images/herramienta2.png" alt="drawing" style="margin-bottom:25px">
+
+**Configuraciones realizadas en esta ventana:**
+
+|Configuración|Valor|
+|--|--|
+|ConnectionType|OLE DB|
+|Connection|**CONEXIÓN CREADA** *|
+|SQLSourceType|Direct input|
+|SQLStatement|```TRUNCATE TABLE compras_privote;```<br>```TRUNCATE TABLE ventas_pivote;```|
+|BypassPrepare|False|
 
 
+**Conexión hacia** ***SQL Server***
+
+Es necesario crear una nueva conexión hacia nuestra instancia de *SQL Server*, para ello, en la ventana que nos desplegó el paso anterior, en el apartado de **Connection**, seleccionamos *New connection*. 
+
+En la ventana que nos muestra, seleccionar *New* y llenar los datos requeridos. 
+
+
+<img src="images/herramienta3.png" alt="drawing" style="margin-bottom:25px">
+
+|Configuración|Valor|
+|--|--|
+|Provider|Microsoft OLE DB Provider for SQL Server|
+|Server name|Nombre de nuestro servidor de SQL Server|
+
+Una vez llenos los datos, podemos comprobar el estado de la conexión por medio del botón *Test Connection*. 
+
+<img src="images/herramienta4.png" alt="drawing" style="margin-bottom:25px">
+
+
+>
+><img src="https://cdn-icons-png.flaticon.com/512/561/561739.png" alt="drawing" width="25">  **¿Dónde podemos encontrar el nombre de nuestro servidor SQL Server?**
+>Nos dirigimos a nuestro ***DMBS*** y verificamos las propiedades de la instancia, en este caso, el valor que buscamos está en el apartado de  *Product*, en el atributo *Server Name*.
+>
+><img src="images/herramienta5.png" alt="drawing" style="margin-bottom:25px">
+
+- **Carga masiva de datos**
+
+Para llevar a cabo la carga masiva de datos en ***SQL Server***, utilizaremos la herramienta *Bulk Insert Task*, la cual nos permitirá cargar todos los datos contenidos en un archivo, a una tabla, en este caso una tabla temporal o pivote definida anteriormente.  
+
+<img src="images/herramienta6.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Al hacer doble *click* en esta herramienta, veremos una ventana en la cual debemos seleccionar las configuraciones adecuadas, dependiendo de los parámetros que cumplen con la configuración del archivo que estaremos utilizando. A continuación se muestran las configuraciones a utilizar. 
+
+<img src="images/herramienta7.png" alt="drawing" style="margin-bottom:25px">
+
+<img src="images/herramienta8.png" alt="drawing" style="margin-bottom:25px">
+
+**Configuraciones realizadas en el apartado** ***Connection***
+
+|Configuración|Valor|
+|--|--|
+|Connection|Conexión creada anteriormente|
+|DestinationTable|Tabla destino **compras_pivote** o **ventas_pivote**|
+|RowDelimiter| CR|
+|ColumnDelimiter|Vertical Bar |
+|File|Seleccionar archivo|
+
+
+**Configuraciones realizadas en el apartado** ***Options***
+
+|Configuración|Valor|
+|--|--|
+|FirstRow|2*|
+
+>El valor de ***FirstRow*** lo colocamos en 2 debido a que el archivo contiene en la primera fila los encabezados. 
 
 ### Transformación de datos
 ### Carga de datos 
