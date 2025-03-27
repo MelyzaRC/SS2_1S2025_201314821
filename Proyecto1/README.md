@@ -271,15 +271,65 @@ Una vez llenos los datos, podemos comprobar el estado de la conexión por medio 
 
 >
 ><img src="https://cdn-icons-png.flaticon.com/512/561/561739.png" alt="drawing" width="25">  **¿Dónde podemos encontrar el nombre de nuestro servidor SQL Server?**
+>
 >Nos dirigimos a nuestro ***DMBS*** y verificamos las propiedades de la instancia, en este caso, el valor que buscamos está en el apartado de  *Product*, en el atributo *Server Name*.
 >
 ><img src="images/herramienta5.png" alt="drawing" style="margin-bottom:25px">
 
+
+**Para Postgres**
+
+En el caso de ***Postgres***, también utilizaremos una herramienta *Execute SQL Task*, variando únicamente las configuraciones seleccionadas. 
+
+<img src="images/herramienta1.png" alt="drawing"  width="350" style="margin-bottom:25px">
+
+A continuación se muestran dichas configuraciones y se explican sus valores, esto lo podemos visualizar al hacer doble *click* en la herramienta. 
+
+<img src="images/herramienta9.png" alt="drawing" style="margin-bottom:25px">
+
+
+**Configuraciones realizadas para** ***Postgres***
+
+|Configuración|Valor|
+|--|--|
+|ConnectionType|ODBC|
+|Connection|**CONEXIÓN ODBC**|
+|SQLSourceType|Direct input|
+|SQLStatement|```TRUNCATE TABLE compras_privote;```<br>```TRUNCATE TABLE ventas_pivote;```|
+
+**Agregando ODBC**
+
+Para poder agregar un nuevo OBDC, se debe acceder al ***ODBC Data Source Administrator*** correspondiente a la arquitectura de nuestra computadora.
+
+
+<img src="images/herramienta10.png" alt="drawing" style="margin-bottom:25px">
+
+Posteriormente, presionamos el botón *Add*, lo cual nos mostrará una ventana en la que debemos escoger la opción, en este caso, ***Postgre SQL ANSI(x64)*** y presionar en *Finish*.
+
+<img src="images/herramienta11.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+En la ventana que nos aparece, procedemos a llenar los datos de nuestra base de datos. 
+
+<img src="images/herramienta12.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Una vez que hemos terminado de llenar los datos correspondientes a nuestra base de datos, podemos probar el estado de la conexión. Para esto, hacemos *click* en el botón *Test*. 
+
+<img src="images/herramienta13.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+><img src="https://files.softicons.com/download/system-icons/lozengue-filetype-icons-by-gurato/png/256/ODBC.png" alt="drawing" width="100" style="margin-top:25px; margin-bottom:15px;">
+>
+>***ODBC (Open Database Connectivity)*** es un estándar de interfaz que permite a las aplicaciones acceder a bases de datos de manera independiente del sistema de gestión de bases de datos (**DBMS**). Funciona como una capa de abstracción que utiliza controladores (*drivers*) específicos para conectarse a distintas bases de datos sin modificar el código de la aplicación. **ODBC** permite ejecutar consultas *SQL*, recuperar datos y gestionar transacciones de manera uniforme. Es ampliamente utilizado en entornos *Windows*, pero también es compatible con *Linux* y *macOS*. Su flexibilidad lo hace útil para conectar aplicaciones con bases de datos como ***MySQL***, ***PostgreSQL***, ***SQL Server*** y ***Oracle***.
+
+
+
 - **Carga masiva de datos**
+
+**Para SQL Server**
 
 Para llevar a cabo la carga masiva de datos en ***SQL Server***, utilizaremos la herramienta *Bulk Insert Task*, la cual nos permitirá cargar todos los datos contenidos en un archivo, a una tabla, en este caso una tabla temporal o pivote definida anteriormente.  
 
 <img src="images/herramienta6.png" alt="drawing" width="350" style="margin-bottom:25px">
+
 
 Al hacer doble *click* en esta herramienta, veremos una ventana en la cual debemos seleccionar las configuraciones adecuadas, dependiendo de los parámetros que cumplen con la configuración del archivo que estaremos utilizando. A continuación se muestran las configuraciones a utilizar. 
 
@@ -305,6 +355,188 @@ Al hacer doble *click* en esta herramienta, veremos una ventana en la cual debem
 |FirstRow|2*|
 
 >El valor de ***FirstRow*** lo colocamos en 2 debido a que el archivo contiene en la primera fila los encabezados. 
+
+
+**Para Postgres**
+
+Para llevar a cabo la carga masiva de datos, desde los diferentes archivos hacia las tablas pivote, utilizaremos la herramienta *Execute Proccess Task*. Esta herramienta, nos permite ejecutar un proceso, que por medio de una serie de instrucciones, nos permitirá cargar los datos hacia nuestras tablas pivote a través del ODBC creado anteriormente y que apunta hacia nuestra instrancia de ***Postgres*** con ***Supabase***. 
+
+<img src="images/herramienta14.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Al hacer doble *click* sobre esta herramienta, nos aparecerá, como en las otras herramientas, una ventana por medio de la cual le indicaremos las configuraciones necesarias para llevar a cabo la ejecución de las sentencias que permitirán la carga de datos. A continuación se muestra la configuración que fue aplicada. 
+
+
+<img src="images/herramienta15.png" alt="drawing"  style="margin-bottom:25px">
+
+**Configuraciones realizadas en el apartado** ***Process***
+
+|Configuración|Valor|
+|--|--|
+|Executable|**Seleccionar archivo**|
+
+**Archivo ejecutable para carga masiva a Postgres**
+
+**Compras**
+
+```
+@echo off
+setlocal EnableDelayedExpansion
+
+:: Configuración de conexión Supabase
+set PGHOST=
+set PGPORT=5432
+set PGDATABASE=postgres
+set PGUSER=
+set PGPASSWORD=
+set CSV_FILE=SGFood02.comp
+set TABLE_NAME=compras_pivote
+
+:: Configuración del archivo de log
+set LOG_FILE=%~dp0upload_log_%date:~-4,4%%date:~-7,2%%date:~-10,2%_%time:~0,2%%time:~3,2%%time:~6,2%.log
+set LOG_FILE=!LOG_FILE: =0!
+
+:: Crear encabezado del log
+echo ============================================ > %LOG_FILE%
+echo Inicio de proceso: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+echo. >> %LOG_FILE%
+echo Configuración: >> %LOG_FILE%
+echo Host: %PGHOST% >> %LOG_FILE%
+echo Puerto: %PGPORT% >> %LOG_FILE%
+echo Base de datos: %PGDATABASE% >> %LOG_FILE%
+echo Usuario: %PGUSER% >> %LOG_FILE%
+echo Archivo CSV: %CSV_FILE% >> %LOG_FILE%
+echo Tabla destino: %TABLE_NAME% >> %LOG_FILE%
+echo. >> %LOG_FILE%
+
+:: Verificar si existe el archivo CSV
+if not exist "%CSV_FILE%" (
+    echo ERROR: El archivo CSV no existe: %CSV_FILE% >> %LOG_FILE%
+    echo ERROR: El archivo CSV no existe: %CSV_FILE%
+    goto :error
+)
+
+:: Comando para cargar CSV
+echo Subiendo datos a PostgreSQL en Supabase... >> %LOG_FILE%
+echo Iniciando carga: %time% >> %LOG_FILE%
+echo Subiendo datos a PostgreSQL en Supabase...
+
+:: Ejecutar comando y capturar salida
+psql -h %PGHOST% -p %PGPORT% -d %PGDATABASE% -U %PGUSER% -c "\copy %TABLE_NAME% FROM '%CSV_FILE%' WITH (FORMAT csv, HEADER true, DELIMITER '|');" > %TEMP%\psql_output.txt 2>&1
+set RESULT=%ERRORLEVEL%
+
+:: Registrar la salida en el log
+type %TEMP%\psql_output.txt >> %LOG_FILE%
+echo. >> %LOG_FILE%
+
+:: Verificar resultado
+if %RESULT% EQU 0 (
+    echo Datos subidos exitosamente: %time% >> %LOG_FILE%
+    echo Datos subidos exitosamente.
+) else (
+    echo ERROR: La carga falló con código %RESULT%: %time% >> %LOG_FILE%
+    echo ERROR: La carga falló. Revisa el log para más detalles: %LOG_FILE%
+    goto :error
+)
+
+goto :end
+
+:error
+echo ============================================ >> %LOG_FILE%
+echo Proceso terminado con errores: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+exit /b 1
+
+:end
+echo ============================================ >> %LOG_FILE%
+echo Proceso completado: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+echo Log guardado en: %LOG_FILE%
+endlocal
+exit /b 0
+```
+
+**Ventas**
+
+```
+@echo off
+setlocal EnableDelayedExpansion
+
+:: Configuración de conexión Supabase
+set PGHOST=
+set PGPORT=5432
+set PGDATABASE=postgres
+set PGUSER=
+set PGPASSWORD=
+set CSV_FILE=SGFood02.vent
+set TABLE_NAME=ventas_pivote
+
+:: Configuración del archivo de log
+set LOG_FILE=%~dp0upload_log_%date:~-4,4%%date:~-7,2%%date:~-10,2%_%time:~0,2%%time:~3,2%%time:~6,2%.log
+set LOG_FILE=!LOG_FILE: =0!
+
+:: Crear encabezado del log
+echo ============================================ > %LOG_FILE%
+echo Inicio de proceso: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+echo. >> %LOG_FILE%
+echo Configuración: >> %LOG_FILE%
+echo Host: %PGHOST% >> %LOG_FILE%
+echo Puerto: %PGPORT% >> %LOG_FILE%
+echo Base de datos: %PGDATABASE% >> %LOG_FILE%
+echo Usuario: %PGUSER% >> %LOG_FILE%
+echo Archivo CSV: %CSV_FILE% >> %LOG_FILE%
+echo Tabla destino: %TABLE_NAME% >> %LOG_FILE%
+echo. >> %LOG_FILE%
+
+:: Verificar si existe el archivo CSV
+if not exist "%CSV_FILE%" (
+    echo ERROR: El archivo CSV no existe: %CSV_FILE% >> %LOG_FILE%
+    echo ERROR: El archivo CSV no existe: %CSV_FILE%
+    goto :error
+)
+
+:: Comando para cargar CSV
+echo Subiendo datos a PostgreSQL en Supabase... >> %LOG_FILE%
+echo Iniciando carga: %time% >> %LOG_FILE%
+echo Subiendo datos a PostgreSQL en Supabase...
+
+:: Ejecutar comando y capturar salida
+psql -h %PGHOST% -p %PGPORT% -d %PGDATABASE% -U %PGUSER% -c "\copy %TABLE_NAME% FROM '%CSV_FILE%' WITH (FORMAT csv, HEADER true, DELIMITER '|');" > %TEMP%\psql_output.txt 2>&1
+set RESULT=%ERRORLEVEL%
+
+:: Registrar la salida en el log
+type %TEMP%\psql_output.txt >> %LOG_FILE%
+echo. >> %LOG_FILE%
+
+:: Verificar resultado
+if %RESULT% EQU 0 (
+    echo Datos subidos exitosamente: %time% >> %LOG_FILE%
+    echo Datos subidos exitosamente.
+) else (
+    echo ERROR: La carga falló con código %RESULT%: %time% >> %LOG_FILE%
+    echo ERROR: La carga falló. Revisa el log para más detalles: %LOG_FILE%
+    goto :error
+)
+
+goto :end
+
+:error
+echo ============================================ >> %LOG_FILE%
+echo Proceso terminado con errores: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+exit /b 1
+
+:end
+echo ============================================ >> %LOG_FILE%
+echo Proceso completado: %date% %time% >> %LOG_FILE%
+echo ============================================ >> %LOG_FILE%
+echo Log guardado en: %LOG_FILE%
+endlocal
+exit /b 0
+```
+
+- **Flujo de datos**
 
 ### Transformación de datos
 ### Carga de datos 
