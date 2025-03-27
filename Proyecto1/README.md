@@ -538,6 +538,69 @@ exit /b 0
 
 - **Flujo de datos**
 
+Para establecer el flujo de datos, utilizaremos una herramienta llamada *Data Flow Task*, la cual nos permite establecer la manera en que los datos son tratados desde los diferentes orígenes, aplicando también transformaciones, las cuales veremos más adelante. 
+
+<img src="images/herramienta16.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Al hacer doble *click* sobre esta herramienta, nos desplegará la pestaña ***Data Flow*** dentro de nuestro *IDE*. En esta pestaña, veremos que se habilitan nuevas herramientas que podemos utilizar para agregar aspectos del flujo de datos, así como las diferentes transformaciones que necesitamos aplicar. 
+
+**Para SQL Server**
+
+Seleccionamos la herramienta *OLE DB Source**. 
+
+<img src="images/herramienta17.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+Hacemos doble *click* sobre la herramienta y seleccionamos las diferentes opciones, como se muestra a continuación. 
+
+<img src="images/herramienta18.png" alt="drawing" style="margin-bottom:25px">
+
+
+|Configuración|Valor|
+|--|--|
+|OLE DB Connection manager|**Seleccionar conexión creada**|
+|Data access mode|Table or view|
+|Name of the table or the view|Seleccionar **compras_pivote** o **ventas_pivote**|
+
+Si pulsamos en el botón *Preview*, podemos obtener una vista previa de los datos a cargar. 
+
+<img src="images/herramienta19.png" alt="drawing" style="margin-bottom:25px">
+
+Además, si nos dirigimos al apartado *Columns*, veremos el resumen de las columnas que se van a cargar.
+
+<img src="images/herramienta20.png" alt="drawing" style="margin-bottom:25px">
+
+**Para Postgres**
+
+En este caso, utilizaremos la herramienta *ODBC Souce*, que al igual que la herramienta *OLE DBS Source* nos permitirá definir el orígen de los datos a cargar. 
+
+<img src="images/herramienta21.png" alt="drawing" width="350" style="margin-bottom:25px">
+
+En este caso debemos llenar las configuraciones que se muestran a continuación, las cuales podremos ver si hacemos doble *click* en la herramienta. 
+
+<img src="images/herramienta22.png" alt="drawing" style="margin-bottom:25px">
+
+
+|Configuración|Valor|
+|--|--|
+|ODBC Connection manager|**Seleccionamos el ODBC creado**|
+|Data Access mode|SQL Command|
+|SQL command text|```SELECT * FROM compras_pivote;```o ```SELECT * FROM ventas_pivote;```|
+
+Cabe destacar, que en este caso también tendremos disponibles las opciones de *Preview* y *Columns*, mismas que tendrán el mismo comportamiento que en el caso de ***SQL Server***. 
+
+Resultado de la opción *Preview*
+
+<img src="images/herramienta23.png" alt="drawing" style="margin-bottom:25px">
+
+Resultado de la opción *Columns*
+
+<img src="images/herramienta24.png" alt="drawing" style="margin-bottom:25px">
+
+
+**Para archivos planos**
+
+
+
 ### Transformación de datos
 ### Carga de datos 
 

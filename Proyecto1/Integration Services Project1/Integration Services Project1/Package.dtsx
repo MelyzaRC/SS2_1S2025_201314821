@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{1F81A530-2C46-49E5-8B03-1F22701EAAC6}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{B569B6EA-3B74-4B7E-BDD0-F92308C68946}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -305,6 +305,21 @@
           BulkInsertTask:DestinationTableName="[dbo].[ventas_pivote]"
           BulkInsertTask:FieldTerminator="Vertical Bar {|}"
           BulkInsertTask:RowTerminator="{CR}" xmlns:BulkInsertTask="www.microsoft.com/sqlserver/dts/tasks/bulkinserttask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D6AB61A1-1720-4DE8-BC89-D48DDA17D5F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3948,6 +3963,10 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="861.666619587278,314.599997812311" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3959,7 +3978,7 @@
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Flujo de datos\Flat File Source"
-          TopLeft="593.833302827346,33.76666667872" />
+          TopLeft="595.49996940295,32.90000001808" />
         <NodeLayout
           Size="251.2,41.6"
           Id="Package\Flujo de datos\OLE DB Source Compras SQLServer"
@@ -3975,7 +3994,7 @@
         <NodeLayout
           Size="248.8,42.4"
           Id="Package\Flujo de datos\ODBC Source Compras Postgres"
-          TopLeft="309.999983062348,34.666666425599" />
+          TopLeft="310.83331635015,36.3999997468789" />
         <NodeLayout
           Size="120,41.6"
           Id="Package\Flujo de datos\Union All"
@@ -4046,61 +4065,61 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[ODBC Source Output]"
-          TopLeft="433.699981491517,77.066666425599">
+          TopLeft="434.116648135418,78.7999997468789">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,158.099998643994"
+              EndConnector="0,156.366665322714"
               Start="0,0"
-              End="0,150.599998643994">
+              End="0,148.866665322714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,150.599998643994" />
+                    End="0,148.866665322714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,67.299999321997,16,16"
+              BoundingBox="-8,66.433332661357,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[Flat File Source Output]"
-          TopLeft="669.433302827346,75.36666667872">
+          TopLeft="671.09996940295,74.50000001808">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-208.43332290666,159.799998390873"
+              EndConnector="-210.099989482264,160.666665051513"
               Start="0,0"
-              End="-208.43332290666,152.299998390873">
+              End="-210.099989482264,153.166665051513">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,100.217390254917" />
+                    End="0,100.782607642291" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,100.217390254917"
-                    Point2="0,104.217390254917"
-                    Point3="-4,104.217390254917" />
+                    Point1="0,100.782607642291"
+                    Point2="0,104.782607642291"
+                    Point3="-4,104.782607642291" />
                   <mssgle:LineSegment
-                    End="-204.43332290666,104.217390254917" />
+                    End="-206.099989482264,104.782607642291" />
                   <mssgle:CubicBezierSegment
-                    Point1="-204.43332290666,104.217390254917"
-                    Point2="-208.43332290666,104.217390254917"
-                    Point3="-208.43332290666,108.217390254917" />
+                    Point1="-206.099989482264,104.782607642291"
+                    Point2="-210.099989482264,104.782607642291"
+                    Point3="-210.099989482264,108.782607642291" />
                   <mssgle:LineSegment
-                    End="-208.43332290666,152.299998390873" />
+                    End="-210.099989482264,153.166665051513" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-112.21666145333,109.217390254917,16,16"
+              BoundingBox="-113.049994741132,109.782607642291,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
