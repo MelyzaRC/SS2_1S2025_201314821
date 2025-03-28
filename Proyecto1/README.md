@@ -663,21 +663,21 @@ El otro proceso identificado fue el de **Ventas** de productos realizas a los cl
 
 |Tabla|Descripción|
 |--|--|
-|<br>**DimProveedor**<img src="images/tabla1.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla permite almacenar los proveedores que satisfacen de productos para la venta a *SG-Food*.|
-|<br>**DimSucursal**<img src="images/tabla2.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla almacena la información de todos los puntos de venta con los que cuenta actualmente *SG-Food*.|
-|<br>**DimUbicacion**<img src="images/tabla3.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|En esta tabla se almacena las ubicaciones geográficas facilitando la segmentación y generación de consultas.|
-|<br>**DimProducto**<img src="images/tabla4.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla almacena los datos de los productos que son objeto de las operaciones de *SG-Food*.|
-|<br>**DimFecha**<img src="images/tabla5.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|En esta tabla se registran las fechas en las que se llevan a cabo las transacciones de la empresa. |
-|<br>**DimCliente**<img src="images/tabla6.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Son los clientes que han realizado compras de productos a la empresa. |
-|<br>**DimVendedor**<img src="images/tabla7.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra a los colaboradores de *SG-Food* que han realizado ventas de productos. |
+|<br>**DimProveedor**<img src="images/tabla1.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla permite almacenar los proveedores que satisfacen de productos para la venta a *SG-Food*.|
+|<br>**DimSucursal**<img src="images/tabla2.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla almacena la información de todos los puntos de venta con los que cuenta actualmente *SG-Food*.|
+|<br>**DimUbicacion**<img src="images/tabla3.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|En esta tabla se almacena las ubicaciones geográficas facilitando la segmentación y generación de consultas.|
+|<br>**DimProducto**<img src="images/tabla4.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla almacena los datos de los productos que son objeto de las operaciones de *SG-Food*.|
+|<br>**DimFecha**<img src="images/tabla5.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|En esta tabla se registran las fechas en las que se llevan a cabo las transacciones de la empresa. |
+|<br>**DimCliente**<img src="images/tabla6.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Son los clientes que han realizado compras de productos a la empresa. |
+|<br>**DimVendedor**<img src="images/tabla7.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra a los colaboradores de *SG-Food* que han realizado ventas de productos. |
 
 
 **Tablas de hechos**
 
 |Tabla|Descripción|
 |--|--|
-|<br>**FactCompras**<img src="images/tabla8.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las compras de productos a los proveedores.|
-|<br>**FactVentas**<img src="images/tabla9.png" alt="drawing" width="350" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las ventas de productos a los clientes.|
+|<br>**FactCompras**<br><img src="images/tabla8.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las compras de productos a los proveedores.|
+|<br>**FactVentas**<br><img src="images/tabla9.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las ventas de productos a los clientes.|
 
 - **DDL de las tablas utilizadas**
 
