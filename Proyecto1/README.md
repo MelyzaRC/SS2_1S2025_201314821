@@ -642,4 +642,133 @@ Si hacemod doble *click* en la herramienta, podremos ver las diferentes entradas
 
 ## Modelo de DataWarehouse
 
+El modelo elegido fue el modelo ***Constelación***, esto, debido a que se logró identificar dos procesos principales para registrar, uno de ellos es el proceso de **Compras** realizadas a los proveedores para abastecerce de productos para su venta. 
+
+El otro proceso identificado fue el de **Ventas** de productos realizas a los clientes de la megacorporación. 
+
+>
+><img src="https://troyanx.com/Hefesto/img_074.png"  width="200" alt="drawing" style="margin-bottom:25px; margin-top:25px;">
+>
+>**Modelo Constelación**
+>
+>El modelo de ***constelación*** de hechos en *Business Intelligence (BI)* es una estructura de datos utilizada en almacenes de datos donde múltiples tablas de hechos comparten dimensiones comunes. Es una extensión del modelo estrella y permite analizar diferentes procesos de negocio de manera interconectada. Su principal ventaja es la flexibilidad para realizar consultas avanzadas, ya que relaciona diversos hechos, como ventas y devoluciones, a través de dimensiones compartidas como cliente, producto y tiempo. Sin embargo, su complejidad es mayor, lo que puede dificultar su mantenimiento. Es ideal para grandes volúmenes de datos y análisis multidimensionales dentro de organizaciones complejas.
+
+- **Modelo de inteligencia de negocios**
+
+<img src="images/modelo.png" alt="drawing" style="margin-bottom:25px ; margin-top:25px;">
+
+- **Descripción de tablas utilizadas**
+
+**Tablas de dimensión**
+
+
+
+**Tablas de hechos**
+
+- **DDL de las tablas utilizadas**
+
+```
+CREATE DATABASE sgfood;
+USE sgfood;
+
+CREATE TABLE DimSucursal(
+	IdDimSucursal		INT				NOT NULL	IDENTITY	,
+	SodSucursal			VARCHAR(10)		NOT NULL				,		 
+	NombreSucursal		VARCHAR(25)		NOT NULL				,
+	DireccionSucursal	VARCHAR(250)	NOT NULL				, 
+	PRIMARY KEY (IdDimSucursal)
+);
+
+CREATE TABLE DimProducto(
+	IdDimProducto		INT				NOT NULL	IDENTITY	,
+	CodProducto			VARCHAR(10)		NOT NULL				,		 
+	NombreProducto		VARCHAR(250)	NOT NULL				,
+	MarcaProducto		VARCHAR(100)	NOT NULL				, 
+	Categoria			VARCHAR(100)	NOT NULL				,
+	PRIMARY KEY (IdDimProducto)
+);
+
+CREATE TABLE DimFecha(
+	IdDimFecha			INT				NOT NULL	IDENTITY	,
+	Dia					INT				NOT NULL				,		 
+	Mes					INT				NOT NULL				,
+	Anio				INT				NOT NULL				, 
+	PRIMARY KEY (IdDimFecha)
+);
+
+CREATE TABLE DimUbicacion(
+	IdDimUbicacion		INT				NOT NULL	IDENTITY	,
+	Region				VARCHAR(50)		NOT NULL				,		 
+	Departamento		VARCHAR(50)		NOT NULL				,
+	PRIMARY KEY (IdDimUbicacion)
+);
+
+CREATE TABLE DimProveedor(
+	IdDimProveedor		INT				NOT NULL	IDENTITY	,
+	CodProveedor		VARCHAR(10)		NOT NULL				,		 
+	NombreProveedor		VARCHAR(250)	NOT NULL				,
+	DireccionProveedor	VARCHAR(250)	NOT NULL				,
+	NumeroProveedor		VARCHAR(15)		NOT NULL				,
+	WebProveedor		VARCHAR(5)		NOT NULL				,
+	PRIMARY KEY (IdDimProveedor)
+);
+
+CREATE TABLE FactCompras(
+	IdFactCompras		INT				NOT NULL	IDENTITY	, 
+	DimSucursal			INT				NOT NULL				, 
+	DimProducto			INT				NOT NULL				,
+	DimFecha			INT				NOT NULL				,
+	DimUbicacion		INT				NOT NULL				,
+	DimProveedor		INT				NOT NULL				,
+	Unidades			INT				NOT NULL				, 
+	CostoU				DECIMAL(18,2)	NOT NULL				,
+	PRIMARY KEY(IdFactCompras)											,
+	FOREIGN KEY(DimSucursal)	REFERENCES DimSucursal(IdDimSucursal)	,
+	FOREIGN KEY(DimProducto)	REFERENCES DimProducto(IdDimProducto)	,
+	FOREIGN KEY(DimFecha)		REFERENCES DimFecha(IdDimFecha)			,
+	FOREIGN KEY(DimUbicacion)	REFERENCES DimUbicacion(IdDimUbicacion)	,
+	FOREIGN KEY(DimProveedor)	REFERENCES DimProveedor(IdDimProveedor)	
+);
+
+CREATE TABLE DimCliente(
+	IdDimCliente		INT				NOT NULL	IDENTITY	,
+	CodigoCliente		VARCHAR(10)		NOT NULL				,		 
+	NombreCliente		VARCHAR(250)	NOT NULL				,
+	TipoCliente			VARCHAR(25)		NOT NULL				,
+	DireccionCliente	VARCHAR(250)	NOT NULL				,
+	NumeroCliente		VARCHAR(15)		NOT NULL				,
+	PRIMARY KEY (IdDimCliente)
+);
+
+CREATE TABLE DimVendedor(
+	IdDimVendedor		INT				NOT NULL	IDENTITY	,
+	CodVendedor			VARCHAR(10)		NOT NULL				,		 
+	NombreVendedor		VARCHAR(250)	NOT NULL				,
+	Vacacionista		VARCHAR(5)		NOT NULL				,
+	PRIMARY KEY (IdDimVendedor)
+);
+
+CREATE TABLE FactVentas(
+	IdFactVentas		INT				NOT NULL	IDENTITY	, 
+	DimSucursal			INT				NOT NULL				, 
+	DimProducto			INT				NOT NULL				,
+	DimFecha			INT				NOT NULL				,
+	DimUbicacion		INT				NOT NULL				,
+	DimCliente			INT				NOT NULL				,
+	DimVendedor			INT				NOT NULL				,
+	Unidades			INT				NOT NULL				, 
+	PrecioUnitario		DECIMAL(18,2)	NOT NULL				,
+	PRIMARY KEY(IdFactVentas)											,
+	FOREIGN KEY(DimSucursal)	REFERENCES DimSucursal(IdDimSucursal)	,
+	FOREIGN KEY(DimProducto)	REFERENCES DimProducto(IdDimProducto)	,
+	FOREIGN KEY(DimFecha)		REFERENCES DimFecha(IdDimFecha)			,
+	FOREIGN KEY(DimUbicacion)	REFERENCES DimUbicacion(IdDimUbicacion)	,
+	FOREIGN KEY(DimCliente)		REFERENCES DimCliente(IdDimCliente)		,
+	FOREIGN KEY(DimVendedor)	REFERENCES DimVendedor(IdDimVendedor)	
+);
+```
+
+
+<img src="images/modelo_sql.png" alt="drawing" style="margin-bottom:25px; margin-top:25px;">
+
 ## Manual de implementación 
