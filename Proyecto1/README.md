@@ -679,6 +679,17 @@ El otro proceso identificado fue el de **Ventas** de productos realizas a los cl
 |<br>**FactCompras**<br><img src="images/tabla8.png" alt="drawing" width="200" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las compras de productos a los proveedores.|
 |<br>**FactVentas**<br><img src="images/tabla9.png" alt="drawing" width="200" style="margin-bottom:25px ; margin-top:25px;">|Esta tabla registra las ventas de productos a los clientes.|
 
+- **Relaciones**
+
+|Relación|Descripción|
+|--|--|
+|**DimProveedor** <img src="https://images.emojiterra.com/google/android-10/512px/27a1.png" alt="drawing" width="20" style="margin-left:10px; margin-right:10px;"> **FactCompras**<br><img src="images/relacion1.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Proveedor que brinda los productos que son objeto de la compra.|
+|**DimSucursal** <img src="https://images.emojiterra.com/google/android-10/512px/27a1.png" alt="drawing" width="20" style="margin-left:10px; margin-right:10px;"> **FactCompras**<br><img src="images/relacion2.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Sucursal en la que se lleva a cabo la compra.|
+|**DimUbicacion** <img src="https://images.emojiterra.com/google/android-10/512px/27a1.png" alt="drawing" width="20" style="margin-left:10px; margin-right:10px;"> **FactCompras**<br><img src="images/relacion3.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Sucursal en la que se lleva a cabo la compra.|
+|**DimProducto** <img src="https://images.emojiterra.com/google/android-10/512px/27a1.png" alt="drawing" width="20" style="margin-left:10px; margin-right:10px;"> **FactCompras**<br><img src="images/relacion4.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Producto involucrado en la compra.|
+|**DimFecha** <img src="https://images.emojiterra.com/google/android-10/512px/27a1.png" alt="drawing" width="20" style="margin-left:10px; margin-right:10px;"> **FactCompras**<br><img src="images/relacion5.png" alt="drawing" width="300" style="margin-bottom:25px ; margin-top:25px;">|Fecha en que se lleva a cabo la compra|
+
+
 - **DDL de las tablas utilizadas**
 
 ```
