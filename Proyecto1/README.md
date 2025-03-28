@@ -599,6 +599,42 @@ Resultado de la opción *Columns*
 
 **Para archivos planos**
 
+Para realizar la carga de un archivo plano, debemos elegir la herramienta *Flat File Source*, la cual nos permitirá crear una conexión hacia un archivo específico y poder cargar los datos contenidos en el mismo, también podremos establecer los diferentes parámetros de carga con base en la construcción de nuestro archivo. 
+
+<img src="images/herramienta25.png" alt="drawing"  width="350" style="margin-bottom:25px">
+
+Al hacer doble *click* en esta herramienta, veremos una ventana en la que podemos realizar algunas configuraciones. 
+
+<img src="images/herramienta26.png" alt="drawing" style="margin-bottom:25px">
+
+En la opción *Flat File Connection Manager*, presionamos el botón *New*, lo que nos desplegará una ventana en la que podremos seleccionar el archivo que contiene la información de nuestro interés, así como indicar la estructura del archivo. 
+
+<img src="images/herramienta27.png" alt="drawing" style="margin-bottom:25px">
+
+
+|Configuración|Valor|
+|--|--|
+|File name|**Seleccionamos el archivo**|
+|Format|Delimited|
+|Text qualifier|none|
+|Header row delimiter|CR|
+|Column names in the first data row|**Rellenar la casilla**|
+
+
+Si seleccionamos el apartado *Columns*, podremos ver las columnas que posee nuestro archivo, las cuales han sido organizadas según el delimitador que hemos establecido. 
+
+
+<img src="images/herramienta28.png" alt="drawing" style="margin-bottom:25px">
+
+- **Uniendo las 3 fuentes de orígen de datos**
+
+Para realizar la unión de todos los datos provenientes de nuestras 3 fuentes de orígen de información, utilizaremos la herramienta identificada como *Union All*. Esta herramienta nos permite combinar datos de diferentes entradas, permitiendo homologar las columnas de cada una de las fuentes utilizadas. 
+
+<img src="images/herramienta29.png" alt="drawing"  width="350" style="margin-bottom:25px">
+
+Si hacemod doble *click* en la herramienta, podremos ver las diferentes entradas que hemos colocado, si se da el caso de que las columnas no concuerdan, en este punto podemos seleccionar manualmente las mismas para hacerlas coincidir con los de las otras fuentes de datos. 
+
+<img src="images/herramienta30.png" alt="drawing" style="margin-bottom:25px">
 
 
 ### Transformación de datos
