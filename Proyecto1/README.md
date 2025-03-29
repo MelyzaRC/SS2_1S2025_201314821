@@ -680,7 +680,6 @@ La herramienta ***SSIS*** nos provee de diferentes opciones para realizar la lim
 |--|--|--|
 |CodProveedor|```ISNULL(CodProveedor)  TRIM(CodProveedor) == "" ? "P0000" : TRIM(CodProveedor)```|Sustituye todos los valores vacíos o *NULL* con el código **P0000**, el cual será un código genérico que nos ayudará a realizar las consultas correspondientes.|
 |DireccionProveedor|```REPLACE(DireccionProveedor,"\"","")```|Elimina los caracteres *comillas dobles* de la cadena. |
-|NumeroProveedor|```FINDSTRING("[^0-9]",NumeroProveedor,1) == 0 ? NumeroProveedor : NULL(DT_WSTR,200)```|Elimina todos los números telefónicos que tengan caracteres que no sean números. |
 |CodProducto|```ISNULL(CodProducto)  TRIM(CodProducto) == "" ? "PROD000" : TRIM(CodProducto)```|Sustituye todos los valores vacíos o *NULL* con el código **PROD000**, el cual será un código genérico que nos ayudará a realizar las consultas correspondientes.|
 |DireccionSucursal|```REPLACE(DireccionSucursal,"\"","")```|Elimina los caracteres *comillas dobles* de la cadena. |
 |Region|```REPLACE(Region,"Metropolitala","Metropolitana")```|Corrige el valor de la región por la palabra correcta.|
