@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">MELYZA-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfZKT+RpL3E+kHIAJr7+0KAAAAAACAAAAAAAQZgAAAAEAACAAAAC7C5IwwbLHsnTV6MiGdt5SFcezAnVnL+k+lFCXH+W9NgAAAAAOgAAAAAIAACAAAABOOByfvcZWgKm2rfnAFawyqKGDqml48E5U6mwTES2AVJAAAAA7wb99rjuf+SSZQe1rPbrGIYfcOLCZmsAogl5OxaQTbr5Me+dpIsRnEOwBz6WHYzxGGFT04XRRCbGVVCqBpu7SuB9ZZ1LfRdDNP6NbNgBEChjpeIpzxhnrlqT8E2b9XdNJGKV5Cn4upQ2SV3GFJebWN2SQNBKPbHuT2OQAFXBX58YbsOohcCpQjyUqvdUp4HlAAAAAiHKhUd+n3UFAYnqp88/SfMgZxYsmTljwlBvg/TB7GT7+ThC5J0VCyD8v9BbTxx33nFMmRF7nWH7W/iQkGJnCRw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfZKT+RpL3E+kHIAJr7+0KAAAAAACAAAAAAAQZgAAAAEAACAAAABbtVKK6f3G9vx9wUhpumF1bqy/ztbzUlj+7APcLnkbwgAAAAAOgAAAAAIAACAAAADN+zHiF/wAoFJ402eieG9cqk0etUGyJgdkECRkQBgqyZAAAABAUtHjds9//hx3Db5m/kFa1PCHW56bHFZsiFzYEPJSgEmSM6Hb4JhuUpEimfdRQ6QJiu+FTPkPPzD+KjNyvGUwc401GUcn5ZdHZfGnGdMb7IpDmJcxVA0TFACodiBVkTAfTZV3/HVbcjezIIKqOTX3l7AtIz2gqIr6PWEeC1o/J28R2YYue0mfkiqPyDSWmgBAAAAAVXjAPDuM7J5TusnHHvLabJGP0LTFrDI+PyPZV3M7hSVKJ6bNllL8p7YqBXRF8ebcYHCFTi+vgTkvXiNqjx3pTw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -193,10 +193,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">90</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">119</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{CA5F1FA4-C711-4061-9DAE-BD65EBFC105C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{712FB0A4-48F1-45E3-8278-C0140CA5A7AC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -364,6 +364,8 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">
+                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -619,7 +621,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=MELYZA-PC\SQLEXPRESS;Initial Catalog=pivote;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{65FFB28B-67B6-463F-BB7A-F932FFE91D15}MELYZA-PC\SQLEXPRESS.pivote;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=MELYZA-PC\SQLEXPRESS;Initial Catalog=sgfood;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{65FFB28B-67B6-463F-BB7A-F932FFE91D15}MELYZA-PC\SQLEXPRESS.pivote;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -679,7 +681,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">pivote</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">sgfood</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

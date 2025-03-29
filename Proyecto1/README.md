@@ -704,6 +704,8 @@ La herramienta ***SSIS*** nos provee de diferentes opciones para realizar la lim
 
 <img src="images/t4.png" alt="drawing"  style="margin-bottom:25px; margin-top:25px;">
 
+- **Conversión de datos**
+
 
 
 ### Carga de datos 
