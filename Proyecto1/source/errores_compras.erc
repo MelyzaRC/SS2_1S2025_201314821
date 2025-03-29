@@ -1,1 +1,17 @@
 Fecha,CodProveedor,NombreProveedor,DireccionProveedor,NumeroProveedor,WebProveedor,CodProducto,NombreProducto,MarcaProducto,Categoria,SodSuSursal,NombreSucursal,DireccionSucursal,Region,Departamento,Unidades,CostoU,Dia,Mes,Anio,ErrorCode,ErrorColumn
+23/05/2020,P0129,RODOLFO BUCIO GONZALEZ,km. 126 ruta al pacifico, rio bravo suchitepequez,ERROR401,N,EP00012,Cerveza negra erdinger pikantus bot ,PASTICHELI,Vinos y Licores,S0048,Sucursal48,calzada atanasio tzul 22-00 zona 12, el cortijo ii, bodega 319,,Metropolitana, Guatemala,458,169.92,23,5,2020,-1071607681,117
+13/06/2020,P0150,RECOLECCION SUSTENTABLE GUERRERO S.A. DE C.V.,9 avenida 4-10 zona 1,,ERROR401,S,EP00021,Cerveza Lager 5% Puls En Lata Sixpack ,ZENU,Vinos y Licores,S0054,Sucursal54,ruta 6, 4-34, zona 4,,Noroccidente2,Quiche,217,146.67,13,6,2020,-1071607681,117
+05/09/2020,P0234,ELIZABETH HERNANDEZ PADILLA,avenida las americas 20-90, zona 13,NAC,N,OP00040,Cerveza hofbrau munchen original bot.x500ml,ZENU,Vinos y Licores,S0084,Sucursal84,14 avenida 15-56 zona 1,,Verapaz1,Alta Verapaz,73,455.63,9,5,2020,-1071607681,117
+16/09/2020,P0245,INNWORKING NETWORKS S.A. DE C.V.,3 avenida 7-18 zona 10,,KHE,S,OP00057,Cerveza Hofbrau Munchen Weisse botella ,LISTA,Vinos y Licores,S0087,Sucursal87,centro uno, la maquina, calle principal, lote 117, cuyotenango, suchitepequez,Nororiente2,El Progreso,572,165.52,16,9,2020,-1071607681,117
+
+17/02/2020,P0033,CONSULTORÍA E INGENIERÍA INTEGRAL XPIÁ S.A DE C.V,10a. avenida 31-71, zona 5,36khe69,S,AC00029,Toallas Húmedas Desinfectantes Familia Hogar Repuesto Lavanda ,ETERNA,Limpieza de cocina,S0012,Sucursal12,9 calle a 1-33 zona 1,,Metropolitana, Guatemala,476,331.2,17,2,2020,-1071607681,117
+
+27/04/2020,P0103,MARÍA DEL PILAR ORTEGA RODRIGUEZ,5ta. avenida 13-43 zona 1,,32nono11,S,AC00094,Paté de La Maison de Paté por 2 unds,NICO JAMONES,Charcutería,S0039,Sucursal39,16 avenida 6-15 zona 4, ,,Suroccidente4,Suchitepequez,310,333.63,27,4,2020,-1071607681,117
+
+01/10/2020,P0260,ALF MENSAJERIA Y SERVICIOS S.A. DE C.V.,15 avenida 19-25 zona 13,ERROR401,N,OP00070,Toallas de Cocina Familia AcolchaMAX ExtraGrande Decorada de 80 Hojas,YOX,Limpieza de cocina,S0092,Sucursal92,kilometro 6.5 carretera al atlantico, zona 18,,Metropolitana, Guatemala,606,136.54,10,1,2020,-1071607681,117
+
+19/10/2020,P0278,MIGUEL ANGEL MARTINEZ ZAVALA,7a. avenida 5-13 a sector a3 zona 8,  san cristobal, ,,ERROR401,S,OP00093,Pate de aves bandeja Bon pate ,MONTICELLO,Charcutería,S0098,Sucursal98,diagonal 30 boulevar san rafael 20-01 zona 18,,Suroriente3,Santa Rosa,492,262.64,19,10,2020,-1071607681,117
+
+02/11/2020,P0292,ZYXA S.A DE C.V.,4 avenida 3-68 zona 9, edificio intecunsa oficina 102,,NOHAY,N,P00001,Brochas UBL maquillaje ,TRIM,Belleza,S0102,Sucursal102,7a. calle 3-21 zona 10,Nororiente1,Chiquimula,647,42.36,11,2,2020,-1071607681,117
+
+04/12/2020,P0324,TECNOLOGÍA EN INGENIERÍA FÉNIX, S.A. DE C.V.,4 calle 21-72 zona 14 apartamento 20,,ACATAMPOCO,N,P00027,Aromatizante De Ambiente En Aerosol Automático 3 En 1 Hawaiian Breeze Glade 1 Aparato + 1 Repuesto ,AIR WICK,Aseo de hogar,S0111,Sucursal111,6 calle 5-47 zona 9, edificio vasil, nivel 6, 01009,Nororiente2,El Progreso,142,414.94,12,4,2020,-1071607681,117

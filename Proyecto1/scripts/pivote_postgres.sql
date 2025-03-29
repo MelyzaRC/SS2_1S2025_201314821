@@ -1,0 +1,42 @@
+CREATE TABLE compras_pivote (
+    fecha                VARCHAR(200),  
+    cod_proveedor        VARCHAR(200),  
+    nombre_proveedor     VARCHAR(200),  
+    direccion_proveedor  VARCHAR(200),  
+    numero_proveedor     VARCHAR(200),  
+    web_proveedor        VARCHAR(200),  
+    cod_producto         VARCHAR(200),  
+    nombre_producto      VARCHAR(200),  
+    marca_producto       VARCHAR(200),  
+    categoria           VARCHAR(200),  
+    sod_sucursal        VARCHAR(200), 
+    nombre_sucursal     VARCHAR(200),  
+    direccion_sucursal  VARCHAR(200),  
+    region              VARCHAR(200),  
+    departamento        VARCHAR(200),  
+    unidades            VARCHAR(200), 
+    costo_unitario      VARCHAR(200) 
+);
+
+CREATE TABLE ventas_pivote (
+    fecha                VARCHAR(200),  
+    codigo_cliente       VARCHAR(200),  
+    nombre_cliente       VARCHAR(200),  
+    tipo_cliente         VARCHAR(200),  
+    direccion_cliente    VARCHAR(200),  
+    numero_cliente       VARCHAR(200),  
+    cod_vendedor        VARCHAR(200),  
+    nombre_vendedor     VARCHAR(200),  
+    vacacionista        VARCHAR(200),  
+    cod_producto        VARCHAR(200),  
+    nombre_producto     VARCHAR(200),  
+    marca_producto      VARCHAR(200),  
+    categoria           VARCHAR(200),  
+    sod_sucursal        VARCHAR(200),
+    nombre_sucursal     VARCHAR(200),  
+    direccion_sucursal  VARCHAR(200),  
+    region              VARCHAR(200),  
+    departamento        VARCHAR(200),  
+    unidades            VARCHAR(200),
+    precio_unitario     VARCHAR(200)
+);

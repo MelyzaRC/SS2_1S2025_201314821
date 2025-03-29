@@ -118,46 +118,46 @@ A continuación, se detalla los motores de base de datos utilizados y la definic
 **DDL de las tablas:**
 ```
 CREATE TABLE compras_pivote (
-	Fecha				NVARCHAR(200)	NULL	,  
-	CodProveedor		NVARCHAR(200)	NULL	,  
-	NombreProveedor		NVARCHAR(200)	NULL	,  
-	DireccionProveedor	NVARCHAR(200)	NULL	,  
-	NumeroProveedor		NVARCHAR(200)	NULL	,  
-	WebProveedor		NVARCHAR(200)	NULL	,  
-	CodProducto			NVARCHAR(200)	NULL	,  
-	NombreProducto		NVARCHAR(200)	NULL	,  
-	MarcaProducto		NVARCHAR(200)	NULL	,  
-	Categoria			NVARCHAR(200)	NULL	,  
-	SodSuSursal			NVARCHAR(200)	NULL	,  
-	NombreSucursal		NVARCHAR(200)	NULL	,  
-	DireccionSucursal	NVARCHAR(200)	NULL	,  
-	Region				NVARCHAR(200)	NULL	,  
-	Departamento		NVARCHAR(200)	NULL	,  
-	Unidades			NVARCHAR(200)	NULL	,  
-	CostoU				NVARCHAR(200)	NULL 
+	Fecha				VARCHAR(200)	NULL	,  
+	CodProveedor		VARCHAR(200)	NULL	,  
+	NombreProveedor		VARCHAR(200)	NULL	,  
+	DireccionProveedor	VARCHAR(200)	NULL	,  
+	NumeroProveedor		VARCHAR(200)	NULL	,  
+	WebProveedor		VARCHAR(200)	NULL	,  
+	CodProducto			VARCHAR(200)	NULL	,  
+	NombreProducto		VARCHAR(200)	NULL	,  
+	MarcaProducto		VARCHAR(200)	NULL	,  
+	Categoria			VARCHAR(200)	NULL	,  
+	SodSuSursal			VARCHAR(200)	NULL	,  
+	NombreSucursal		VARCHAR(200)	NULL	,  
+	DireccionSucursal	VARCHAR(200)	NULL	,  
+	Region				VARCHAR(200)	NULL	,  
+	Departamento		VARCHAR(200)	NULL	,  
+	Unidades			VARCHAR(200)	NULL	,  
+	CostoU				VARCHAR(200)	NULL 
 );
 
 CREATE TABLE ventas_pivote (
-	Fecha				NVARCHAR(200)	NULL	,  
-	CodigoCliente		NVARCHAR(200)	NULL	,  
-	NombreCliente		NVARCHAR(200)	NULL	,  
-	TipoCliente			NVARCHAR(200)	NULL	,  
-	DireccionCliente	NVARCHAR(200)	NULL	,  
-	NumeroCliente		NVARCHAR(200)	NULL	,  
-	CodVendedor			NVARCHAR(200)	NULL	,  
-	NombreVendedor		NVARCHAR(200)	NULL	,  
-	Vacacionista		NVARCHAR(200)	NULL	,  
-	CodProducto			NVARCHAR(200)	NULL	,  
-	NombreProducto		NVARCHAR(200)	NULL	,  
-	MarcaProducto		NVARCHAR(200)	NULL	,  
-	Categoria			NVARCHAR(200)	NULL	,  
-	SodSuSursal			NVARCHAR(200)	NULL	,  
-	NombreSucursal		NVARCHAR(200)	NULL	,  
-	DireccionSucursal	NVARCHAR(200)	NULL	,  
-	Region				NVARCHAR(200)	NULL	,  
-	Departamento		NVARCHAR(200)	NULL	,  
-	Unidades			NVARCHAR(200)	NULL	,  
-	PrecioUnitario		NVARCHAR(200)	NULL  
+	Fecha				VARCHAR(200)	NULL	,  
+	CodigoCliente		VARCHAR(200)	NULL	,  
+	NombreCliente		VARCHAR(200)	NULL	,  
+	TipoCliente			VARCHAR(200)	NULL	,  
+	DireccionCliente	VARCHAR(200)	NULL	,  
+	NumeroCliente		VARCHAR(200)	NULL	,  
+	CodVendedor			VARCHAR(200)	NULL	,  
+	NombreVendedor		VARCHAR(200)	NULL	,  
+	Vacacionista		VARCHAR(200)	NULL	,  
+	CodProducto			VARCHAR(200)	NULL	,  
+	NombreProducto		VARCHAR(200)	NULL	,  
+	MarcaProducto		VARCHAR(200)	NULL	,  
+	Categoria			VARCHAR(200)	NULL	,  
+	SodSuSursal			VARCHAR(200)	NULL	,  
+	NombreSucursal		VARCHAR(200)	NULL	,  
+	DireccionSucursal	VARCHAR(200)	NULL	,  
+	Region				VARCHAR(200)	NULL	,  
+	Departamento		VARCHAR(200)	NULL	,  
+	Unidades			VARCHAR(200)	NULL	,  
+	PrecioUnitario		VARCHAR(200)	NULL  
 );
 ```
 
@@ -706,9 +706,110 @@ La herramienta ***SSIS*** nos provee de diferentes opciones para realizar la lim
 
 - **Conversión de datos**
 
+Para convertir los datos a los indicados, que hemos utilizado en nuestro *DataWarehouse*, utilizaremos una herramienta *Data Conversion*. 
+
+<img src="images/data_conversion.png" alt="drawing" width="350" style="margin-top:25px; margin-bottom:25px;"> 
+
+Cuando hacemos doble *click* sobre la herramienta, podremos elegir el timpo de dato que corresponde a cada una de las columnas, seleccionando un valor en *Data Type*. 
+
+<img src="images/dt1.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+Así mismo, podemos seleccionar el destino que deseamos que tengan los errores, dependiendo de la estrategia que utilicemos para la recuperación de los mismos. Dicha configuración la podemos realizar al presionar en el botón *Configure Error Output*. 
+
+<img src="images/dt2.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+- **Reporte de errores de limpieza y transformación de datos**
+
+La estrategia que se ha decidido tomar en este caso, es generar un reporte de errores que recopila y muestra cada uno de los errores que han surgido en el proceso de transformación de datos. 
+
+Para este propósito, utilizamos una herramienta de tipo *Flat File Destination*. Esta, nos permite crear una conexión con un archivo de salida, organizando las diferentes columnas que deseamos que se incluyan, así como los parámetros que dictarán la estructura del archivo generados. 
+
+<img src="images/dt3.png" alt="drawing" width="350" style="margin-top:25px; margin-bottom:25px;"> 
+
+
+Al hacer doble *click* en la herramienta, podemos observar una ventana en la que podremos seleccionar el destino del archivo a genear, así como otros parámetros del archivo, tales como el delimitador de línea, si deseamos saltar registros, si los nombres de las columnas vienen en los datos, entre otras. 
+
+<img src="images/dt5.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+También nos permite seleccionar el delimitador de los campos, el tipo de dato a generar y la longitud del mismo. 
+
+<img src="images/dt6.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+Esta herramienta, también nos permite seleccionar las columnas de la entrada de datos que corresponden a las columnas que hemos definido para nuestro archivo a crear. 
+
+<img src="images/dt4.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+A continuación se describen cada uno de los archivos generados. 
+
+
+|Archivo|Descripción|
+|--|--|
+|<img src="https://cdn-icons-png.flaticon.com/512/4911/4911544.png" alt="drawing" width="25">  errores_compras.erc|Archivo con extensión *.erc* que hace referencia a *errores compras*, contiene la información relacionada a los errores obtenidos durante el proceso de transformación de la información relacionada con las compras de la empresa. |
+|<img src="https://cdn-icons-png.flaticon.com/512/4911/4911544.png" alt="drawing" width="25"> errores_ventas.erv|Archivo con extensión *.erv* que hace referencia a *errores ventas*, contiene la información relacionada a los errores obtenidos durante el proceso de transformación de la información relacionada con las ventas de la empresa. |
 
 
 ### Carga de datos 
+
+><img src="images/e3.png" alt="drawing" width="150" style="margin-top:25px; margin-bottom:25px;"> 
+>
+>**Load** - **Carga**
+>
+>El paso de Load en un proceso ETL (Extract, Transform, Load) es la fase final en la que los datos transformados se cargan en un sistema de destino, como un almacén de datos, base de datos relacional o sistema analítico. Este proceso puede realizarse de diferentes maneras, como carga completa, incremental o en tiempo real, dependiendo de los requisitos del negocio. La carga debe garantizar la integridad de los datos, el cumplimiento de restricciones y la optimización del rendimiento. Además, puede incluir validaciones, manejo de errores y registro de auditoría para asegurar que los datos sean confiables y estén listos para el análisis.
+
+Para realizar el proceso de carga a las diferentes tablas que componen nuestro *Data Warehouse*, utilizamos en inicio una herramienta *Multicast*, esta herramienta nos permite dividir un orígen de datos y poder trasladarlo a una o más destinos. 
+
+<img src="images/m1.png" alt="drawing" width="350" style="margin-top:25px; margin-bottom:25px;"> 
+
+Esta herramienta se alimenta de un orígen de datos, en este caso, el resultado de las diferentes transformaciones que hemos realizado a la data obtenida de los diferentes orígenes o fuentes, descritas anteriormente. 
+
+Al hacer doble *click* en la herramienta, vemos las diferentes salidas que hemos establecido, es decir, las salidas que genera mediante la separación de datos. Así mismo, podremos ver las propiedades de cada, al seleccionarla, el a parte derecha de la ventana. 
+
+<img src="images/m2.png" alt="drawing"  style="margin-top:25px; margin-bottom:25px;"> 
+
+- **Inserción de datos al modelo de negocio**
+
+Para poder trasladar los datos que han sido objeto del proceso de transformación, utilizaremos la herramienta *OLE DB Destination*, esta herramienta nos permite establecer una conexión con la base de datos y realizar los respectivos *inserts*. 
+
+<img src="images/in1.png" alt="drawing" width="350" style="margin-top:25px; margin-bottom:25px;"> 
+
+Al hacer doble *click* sobre esta herramienta, podremos ver una ventana donde podremos ver la conexión a utilizar, entre otras configuraciones. 
+
+<img src="images/in2.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+|Configuración|Valor|
+|--|--|
+|<img src="https://cdn-icons-png.flaticon.com/512/2965/2965279.png" alt="drawing" width="20"> OLE DB Connection manager|**Seleccionar la conexión creada**|
+|<img src="https://cdn-icons-png.flaticon.com/512/2965/2965279.png" alt="drawing" width="20"> Data access mode|Table or view|
+|<img src="https://cdn-icons-png.flaticon.com/512/2965/2965279.png" alt="drawing" width="20"> Name of the table or the view|**Seleccionar la tabla correspondiente**|
+
+En esta misma ventana, en el apartado *Mappings*, podemos elegir la columna de nuestra entrada que tiene correlación con las diferentes columnas con las que cuenta la tabla del modelo de negocios. 
+
+
+<img src="images/in3.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+Así mismo, podemos seleccionar el destino que tendrán los errores que puedan ser detectados en el proceso de carga a la base de datos. Para ello, seleccionamos el apartado *Error Output*.
+
+
+<img src="images/in4.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+
+Debemos replicar este proceso para cada una de las dimensiones y tablas de hechos que hemos definido en nuestro modelo de inteligencia de negocios. 
+
+- **Solución implementada en** ***SSIS***
+
+**Pestaña** ***Control Flow***
+
+<img src="images/cf1.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;"> 
+
+**Pestaña** ***Data Flow***
+
+<img src="images/cf2.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;">
+
+- **Ejecución**
+
+<img src="images/cf3.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;">
+
+<img src="images/cf4.png" alt="drawing" style="margin-top:25px; margin-bottom:25px;">
 
 ## Modelo de DataWarehouse
 
@@ -809,7 +910,7 @@ CREATE TABLE DimProveedor (
     CodProveedor        VARCHAR(10) NOT NULL,
     NombreProveedor     VARCHAR(250) NOT NULL,
     DireccionProveedor  VARCHAR(250) NOT NULL,
-    NumeroProveedor     VARCHAR(15) NOT NULL,
+    NumeroProveedor     INT         NOT NULL,
     WebProveedor        VARCHAR(5) NOT NULL,
     PRIMARY KEY (IdDimProveedor)
 );
