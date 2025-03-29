@@ -225,6 +225,12 @@ CREATE TABLE ventas_pivote (
 
 ### Extracción de datos
 
+><img src="images/e1.png" alt="drawing" width="150" style="margin-top:25px; margin-bottom:25px;"> 
+>
+>**Extract** - **Extracción**
+>
+>La extracción en *ETL* es el proceso de obtener datos desde diversas fuentes, como bases de datos, archivos, APIs o sistemas en la nube, para su posterior procesamiento. Puede realizarse de manera completa, incremental o basada en eventos, según la necesidad del sistema. Un aspecto clave es garantizar la calidad y consistencia de los datos extraídos, evitando problemas como duplicados o valores faltantes. Además, es importante optimizar el rendimiento, especialmente cuando se manejan grandes volúmenes de información. La extracción es fundamental para asegurar que los datos estén disponibles y listos para la fase de transformación en el flujo *ETL*.
+
 - **Limpieza de tablas pivote**
 
 Para la limpieza de tablas pivote, utilizamos la herramienta **Execute SQL TASK**, por medio de la cual podremos ejecutar las sentencias que vacían cualquier dato existente en las tablas temporales o también llamadas tablas pivote, a modo de que no existan datos anteriores y se puedan procesar unicamente los datos que tenemos actualmente en los archivos correspondientes. 
@@ -632,12 +638,74 @@ Para realizar la unión de todos los datos provenientes de nuestras 3 fuentes de
 
 <img src="images/herramienta29.png" alt="drawing"  width="350" style="margin-bottom:25px">
 
-Si hacemod doble *click* en la herramienta, podremos ver las diferentes entradas que hemos colocado, si se da el caso de que las columnas no concuerdan, en este punto podemos seleccionar manualmente las mismas para hacerlas coincidir con los de las otras fuentes de datos. 
+Si hacemos doble *click* en la herramienta, podremos ver las diferentes entradas que hemos colocado, si se da el caso de que las columnas no concuerdan, en este punto podemos seleccionar manualmente las mismas para hacerlas coincidir con los de las otras fuentes de datos. 
 
 <img src="images/herramienta30.png" alt="drawing" style="margin-bottom:25px">
 
 
 ### Transformación de datos
+
+><img src="images/e2.png" alt="drawing" width="150" style="margin-top:25px; margin-bottom:25px;"> 
+>
+>**Transform** - **Transformación**
+>
+>La transformación en *ETL* es el proceso en el que los datos extraídos se depuran, convierten y enriquecen para que sean adecuados para el análisis y almacenamiento en el destino final. Incluye operaciones como limpieza de datos, eliminación de duplicados, conversión de formatos, cálculo de nuevos valores, integración de múltiples fuentes y aplicación de reglas de negocio. Su objetivo es garantizar datos coherentes, estructurados y de calidad. Dependiendo del volumen y complejidad, la transformación puede realizarse en memoria o en bases de datos intermedias antes de la carga. Es un paso crucial para obtener información confiable en los sistemas de análisis.
+
+
+- **Limpieza y transformación de datos**
+
+En este paso del proceso *ETL*, vamos a utilizar la información obtenida por medio del paso anterior, es decir, por medio del paso *Extract* o *Extracción*. En este punto, hemos logrado centralizar los datos obtenidos de las diferentes fuentes de orígen que abastecerán nuestro proceso de transformación. Utilizaremos la herramienta *Derived Column*, como se muestra a continuación. 
+
+
+<img src="images/t1.png" alt="drawing"  width="350" style="margin-bottom:25px; margin-top:25px;">
+
+Al hacer doble *click* en la herramienta, podremos observar una ventana en la que podemos ingresar las diferentes reglas de limpieza y transformación que serán aplicadas a los datos obtenidos. 
+
+<img src="images/t2.png" alt="drawing"  style="margin-bottom:25px; margin-top:25px;">
+
+La herramienta ***SSIS*** nos provee de diferentes opciones para realizar la limpieza y transformación de datos, estas opciones se describen a continuación. 
+
+|Opción|Descripción|
+|--|--|
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Funciones matemáticas|Ofrece diferentes funciones matemáticas simples y complejas para generar nuevos valores.  |
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Funciones de cadena|Ofrece opciones para manejo de cadenas, incluidas la transformación a mayúsculas, minúsculas, subcadenas, entre otros. |
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Funciones de Fecha y hora|Nos brinda funciones para manejo de los diferentes formatos de fecha y hora, así como la extracción de un valor en específico(año, día, minuto, etc.)|
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Funciones NULL|Nos permite indicar el comportamiento que tendrán los valores nulos.|
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Tipos de datos y casteo|Permite establecer el tipo de dato de una valor.|
+|<img src="https://cdn-icons-png.flaticon.com/512/2716/2716311.png" width="20" alt="drawing"> Operaciones|Nos permite ingresar operadores lógicos y matemáticos para generar nuevos valores.|
+
+- **Tranformaciones aplicadas para el proceso de compras**
+
+|Campo|Expresión|Descripción|
+|--|--|--|
+|CodProveedor|```ISNULL(CodProveedor)  TRIM(CodProveedor) == "" ? "P0000" : TRIM(CodProveedor)```|Sustituye todos los valores vacíos o *NULL* con el código **P0000**, el cual será un código genérico que nos ayudará a realizar las consultas correspondientes.|
+|DireccionProveedor|```REPLACE(DireccionProveedor,"\"","")```|Elimina los caracteres *comillas dobles* de la cadena. |
+|NumeroProveedor|```FINDSTRING("[^0-9]",NumeroProveedor,1) == 0 ? NumeroProveedor : NULL(DT_WSTR,200)```|Elimina todos los números telefónicos que tengan caracteres que no sean números. |
+|CodProducto|```ISNULL(CodProducto)  TRIM(CodProducto) == "" ? "PROD000" : TRIM(CodProducto)```|Sustituye todos los valores vacíos o *NULL* con el código **PROD000**, el cual será un código genérico que nos ayudará a realizar las consultas correspondientes.|
+|DireccionSucursal|```REPLACE(DireccionSucursal,"\"","")```|Elimina los caracteres *comillas dobles* de la cadena. |
+|Region|```REPLACE(Region,"Metropolitala","Metropolitana")```|Corrige el valor de la región por la palabra correcta.|
+
+<img src="images/t3.png" alt="drawing"  style="margin-bottom:25px; margin-top:25px;">
+
+
+- **Tranformaciones aplicadas para el proceso de ventas**
+
+|Campo|Expresión|Descripción|
+|--|--|--|
+|CodigoCliente|```ISNULL(CodigoCliente)  TRIM(CodigoCliente) == "" ? "C0000" : TRIM(CodigoCliente)```|Sustituye todos los valores vacíos o *NULL* con el código **C0000**, el cual será un código genérico que nos ayudará a realizar las consultas correspondientes.|
+|DireccionCliente|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(DireccionCliente,"\"",""),"├",""),"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
+|Vacacionista|```REPLACE(REPLACE(Vacacionista,"1","Si"),"0","No")```|Sustituye el valor 1 por la palabra *Si* y el valor 0 por la palabra *No*. Cuando el valor es *NAC*, no se realiza ninguna sustitución, esto debido a que dicho valor nos servirá para generar las consultas correspondientes.|
+|NombreProducto|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(NombreProducto,"\"",""),"├",""),"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
+|Categoria|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(Categoria,"\"",""),"├",""),"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
+|DireccionSucursal|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(DireccionSucursal,"\"",""),"├",""),"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
+|Region|```REPLACE(Region,"Metropolitala","Metropolitana")```|Corrige el valor de la región por la palabra correcta.|
+|Unidades|```REPLACE(Unidades,"-","")```|Elimina los negativos de las unidades, en este caso, se considera que las unidades negativas son errores cometidos por los responsables del llenado de datos. |
+
+
+<img src="images/t4.png" alt="drawing"  style="margin-bottom:25px; margin-top:25px;">
+
+
+
 ### Carga de datos 
 
 ## Modelo de DataWarehouse
