@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="131"
-  DTS:VersionGUID="{9E6E4B7F-3CBB-4603-A7B6-6C459FBA03DF}">
+  DTS:VersionBuild="146"
+  DTS:VersionGUID="{1968CA75-1E63-4805-9783-E4CFD43B0B1A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -217,6 +217,219 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{82C99613-F3C5-4D50-B780-BD291E1EDFA2}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\mlzdr\OneDrive\Escritorio\SEMI2\repo\SS2_1S2025_201314821\Proyecto1\source\errores_compras.erc">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha"
+              DTS:DTSID="{F9F2DEB8-1A2D-47A6-8CFD-1DC3E4EC5815}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProveedor"
+              DTS:DTSID="{355B7F85-720D-4426-A468-199CABC70262}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProveedor"
+              DTS:DTSID="{4A865E2B-083A-42CD-A163-F6D727D54383}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionProveedor"
+              DTS:DTSID="{6C4FB8B0-EB63-436A-826C-C75AD6DE69D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumeroProveedor"
+              DTS:DTSID="{B73E5927-5CAF-4A17-B426-851F2A0FA0F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WebProveedor"
+              DTS:DTSID="{F5BE9142-0579-4E76-9C6B-EE6E665C2AFB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProducto"
+              DTS:DTSID="{067DF9D1-8FC0-4587-8ED9-F9D8033BA8E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProducto"
+              DTS:DTSID="{39668CB0-4E84-4BF7-89B6-6653A39FDAC7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarcaProducto"
+              DTS:DTSID="{0B9C1B4B-01B4-4E31-BCFF-1D27E5161BE3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Categoria"
+              DTS:DTSID="{54155CD7-66E7-4970-B868-0756F6CE6954}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SodSuSursal"
+              DTS:DTSID="{348D48DB-3891-44CD-AD6D-44BD490528D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreSucursal"
+              DTS:DTSID="{B265D2D9-58F0-4C5B-91A7-A245B0F4EF10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionSucursal"
+              DTS:DTSID="{C4D3B8A6-DA37-4182-93BE-E391B351D46A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{D26881A2-A9E9-48B8-9B04-694DF38C1325}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departamento"
+              DTS:DTSID="{B0529844-FCAC-40DA-8D80-62A8B2D9803E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unidades"
+              DTS:DTSID="{E1926F93-E2B9-4F4B-BBFA-74D54F36AE1B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CostoU"
+              DTS:DTSID="{5856272B-D2B5-489A-AC53-8AE7B37114A4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dia"
+              DTS:DTSID="{7AE14A0A-11BB-4F5C-A3B4-9E2DC656B374}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Mes"
+              DTS:DTSID="{784BEF55-B526-473E-BE35-085020FE6192}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Anio"
+              DTS:DTSID="{CE675E18-C5B6-42FF-A78F-A3BA5DC68A89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{EF517C15-CDB4-4B64-A48C-CECBCCF1D6E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{B09B723B-F2EE-4071-B9C1-713D66CE00CE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{3E8D0E76-6B69-4EE9-B552-A632326DB581}"
@@ -384,6 +597,246 @@
               DTS:TextQualified="True"
               DTS:ObjectName="CostoU"
               DTS:DTSID="{CB2D1E3C-DDA6-40AB-A80E-6CD592A60E3D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 3]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D9AF73A0-F886-4C3F-8DFF-CB46D0570E5B}"
+      DTS:ObjectName="Flat File Connection Manager 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\mlzdr\OneDrive\Escritorio\SEMI2\repo\SS2_1S2025_201314821\Proyecto1\source\errores_ventas.erv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fecha"
+              DTS:DTSID="{AF0ED17F-6435-4DA8-B8DB-2E97B57D052A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodProducto"
+              DTS:DTSID="{0FB1DFBE-75F9-4515-995E-24AE4BF82E0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreProducto"
+              DTS:DTSID="{6687973A-9375-4341-8EED-D363BE859FBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarcaProducto"
+              DTS:DTSID="{CECE7101-BFF9-4301-B696-FB047A9D7937}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Categoria"
+              DTS:DTSID="{776DA18E-052D-484B-AD5C-F89555AA14A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SodSucursal"
+              DTS:DTSID="{A517CBB6-F441-4B8B-AD4F-6399CC15AA7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreSucursal"
+              DTS:DTSID="{084AF030-E0E0-4BAC-8BF3-EAF36BD89226}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionSucursal"
+              DTS:DTSID="{68527AF9-8B59-4B07-82D8-7B88B8ADD64D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Region"
+              DTS:DTSID="{3207F03C-9BE4-497C-9633-867A4DEC6123}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departamento"
+              DTS:DTSID="{E55076E7-0002-4FEB-B3FA-366AD0E94397}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unidades"
+              DTS:DTSID="{BC0516B0-EB34-40E4-8421-779C11FC2858}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodigoCliente"
+              DTS:DTSID="{5F088281-B6D6-4201-8877-6BE22D7C93EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreCliente"
+              DTS:DTSID="{CE1AF428-9ADA-46CE-892E-F6A4ECC5365A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TipoCliente"
+              DTS:DTSID="{E32E339B-47BA-478C-A7B4-83425CAC5E89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DireccionCliente"
+              DTS:DTSID="{437ABBA6-CE8A-47A2-AFE3-BDBBEA2A8D61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumeroCliente"
+              DTS:DTSID="{0FED1246-9A70-480A-80A6-CD1FA0D4324E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodVendedor"
+              DTS:DTSID="{B1D3E4AC-9035-4BEC-BC38-645F67EE4C38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NombreVendedor"
+              DTS:DTSID="{827FAA1B-EB51-48F6-82CD-2ECDB891FF1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Vacacionista"
+              DTS:DTSID="{1B6D2047-D583-461A-BCC5-B8BBB715ED15}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PrecioUnitario"
+              DTS:DTSID="{E2D7B31D-ECA1-49EC-BCB2-328E899B34E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DIA"
+              DTS:DTSID="{32D484D5-6200-4DEE-8BD9-68B8594911E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MES"
+              DTS:DTSID="{9A174038-4AB8-4670-99E5-C0B97FC5A5C4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ANIO"
+              DTS:DTSID="{331D1677-E101-4083-89D4-41C6CCFFA9FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{1386168E-23D8-42A1-B191-319AE4F247D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{0141F948-E5E6-4474-B03A-AA8BAB70D2EA}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -1209,10 +1662,10 @@
                       refId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[TFecha]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[TFecha]"
                       name="TFecha"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1229,10 +1682,10 @@
                       refId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Unidades]"
                       dataType="ui8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Unidades]"
                       name="Copy of Unidades"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1249,12 +1702,12 @@
                       refId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CostoU]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CostoU]"
                       name="Copy of CostoU"
                       precision="18"
                       scale="2"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1272,11 +1725,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="10"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CodProveedor]"
                       name="Copy of CodProveedor"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1294,11 +1747,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="250"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NombreProveedor]"
                       name="Copy of NombreProveedor"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1316,11 +1769,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="250"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DireccionProveedor]"
                       name="Copy of DireccionProveedor"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1338,11 +1791,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="15"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NumeroProveedor]"
                       name="Copy of NumeroProveedor"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1360,11 +1813,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="5"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WebProveedor]"
                       name="Copy of WebProveedor"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1382,11 +1835,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="10"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CodProducto]"
                       name="Copy of CodProducto"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1404,11 +1857,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="250"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NombreProducto]"
                       name="Copy of NombreProducto"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1426,11 +1879,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="100"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MarcaProducto]"
                       name="Copy of MarcaProducto"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1448,11 +1901,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="100"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Categoria]"
                       name="Copy of Categoria"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1470,11 +1923,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="10"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SodSuSursal]"
                       name="Copy of SodSuSursal"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1492,11 +1945,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="25"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NombreSucursal]"
                       name="Copy of NombreSucursal"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1514,11 +1967,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="250"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DireccionSucursal]"
                       name="Copy of DireccionSucursal"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1536,11 +1989,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Region]"
                       name="Copy of Region"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1558,11 +2011,11 @@
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       length="50"
                       lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Departamento]"
                       name="Copy of Departamento"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1635,6 +2088,140 @@
                       cachedLength="200"
                       cachedName="PrecioUnitario"
                       lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodProducto"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreProducto"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="MarcaProducto"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[MarcaProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[Categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Categoria"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[SodSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SodSucursal"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[SodSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[NombreSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreSucursal"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[DireccionSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionSucursal"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Region"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[Departamento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Departamento"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Departamento]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[CodigoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodigoCliente"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodigoCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[NombreCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreCliente"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[TipoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="TipoCliente"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[TipoCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[DireccionCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionCliente"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[NumeroCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NumeroCliente"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NumeroCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[CodVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodVendedor"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodVendedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[NombreVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreVendedor"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreVendedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[Vacacionista]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Vacacionista"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Vacacionista]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[DIA]"
+                      cachedDataType="i4"
+                      cachedName="DIA"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[DIA]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[MES]"
+                      cachedDataType="i4"
+                      cachedName="MES"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Inputs[Data Conversion Input].Columns[ANIO]"
+                      cachedDataType="i4"
+                      cachedName="ANIO"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[ANIO]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1650,10 +2237,10 @@
                       refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Fecha]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Fecha]"
                       name="Copy of Fecha"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1670,10 +2257,10 @@
                       refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Unidades]"
                       dataType="ui8"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Unidades]"
                       name="Copy of Unidades"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
@@ -1690,18 +2277,452 @@
                       refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of PrecioUnitario]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="RedirectRow"
                       lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of PrecioUnitario]"
                       name="Copy of PrecioUnitario"
                       precision="18"
                       scale="2"
-                      truncationRowDisposition="FailComponent">
+                      truncationRowDisposition="RedirectRow">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
                           name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[PrecioUnitario]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodProducto]"
+                      name="Copy of CodProducto"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodProducto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="250"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreProducto]"
+                      name="Copy of NombreProducto"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreProducto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of MarcaProducto]"
+                      name="Copy of MarcaProducto"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[MarcaProducto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="100"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Categoria]"
+                      name="Copy of Categoria"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Categoria]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SodSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SodSucursal]"
+                      name="Copy of SodSucursal"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[SodSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="25"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreSucursal]"
+                      name="Copy of NombreSucursal"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="250"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DireccionSucursal]"
+                      name="Copy of DireccionSucursal"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionSucursal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      name="Copy of Region"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="50"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Departamento]"
+                      name="Copy of Departamento"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Departamento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodigoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodigoCliente]"
+                      name="Copy of CodigoCliente"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodigoCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="250"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreCliente]"
+                      name="Copy of NombreCliente"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="25"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of TipoCliente]"
+                      name="Copy of TipoCliente"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[TipoCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="250"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DireccionCliente]"
+                      name="Copy of DireccionCliente"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="15"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NumeroCliente]"
+                      name="Copy of NumeroCliente"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NumeroCliente]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="10"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CodVendedor]"
+                      name="Copy of CodVendedor"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodVendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="250"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of NombreVendedor]"
+                      name="Copy of NombreVendedor"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreVendedor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      length="5"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Vacacionista]"
+                      name="Copy of Vacacionista"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Vacacionista]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DIA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of DIA]"
+                      name="Copy of DIA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[DIA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of MES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of MES]"
+                      name="Copy of MES"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[MES]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ANIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of ANIO]"
+                      name="Copy of ANIO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[ANIO]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -2249,6 +3270,13 @@
                           name="FriendlyExpression">REPLACE(Unidades,"-","")</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Derived Column 1.Inputs[Derived Column Input].Columns[Fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Fecha"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Fecha]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2260,6 +3288,74 @@
                   exclusionGroup="1"
                   name="Derived Column Output"
                   synchronousInputId="Package\Flujo de datos\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[DIA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[DIA]"
+                      name="DIA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DAY]((DT_DBTIMESTAMP)#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Fecha]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DAY((DT_DBTIMESTAMP)Fecha)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[MES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[MES]"
+                      name="MES"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[MONTH]((DT_DBTIMESTAMP)#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Fecha]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH((DT_DBTIMESTAMP)Fecha)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[ANIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[ANIO]"
+                      name="ANIO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR]((DT_DBTIMESTAMP)#{Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Fecha]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR((DT_DBTIMESTAMP)Fecha)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -2337,10 +3433,10 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Flujo de datos\Multicast.Outputs[Multicast Output 6]"
+                  refId="Package\Flujo de datos\Multicast.Outputs[Multicast Output 7]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
-                  name="Multicast Output 6"
+                  name="Multicast Output 7"
                   synchronousInputId="Package\Flujo de datos\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -3883,7 +4979,7 @@
                 <input
                   refId="Package\Flujo de datos\OLE DB Destination DimProveedor.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
+                  errorRowDisposition="IgnoreFailure"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
@@ -5204,6 +6300,710 @@
                   <externalMetadataColumns />
                 </output>
               </outputs>
+            </component>
+            <component
+              refId="Package\Flujo de datos\Reporte de Errores de Compras"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Reporte de Errores de Compras"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flujo de datos\Reporte de Errores de Compras.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Fecha]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[CodProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodProveedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CodProveedor]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProveedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[NombreProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreProveedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreProveedor]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NombreProveedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[DireccionProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionProveedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[DireccionProveedor]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionProveedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[NumeroProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NumeroProveedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NumeroProveedor]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NumeroProveedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[WebProveedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="WebProveedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[WebProveedor]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[WebProveedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CodProducto]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreProducto]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NombreProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="MarcaProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[MarcaProducto]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[MarcaProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Categoria]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[SodSuSursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SodSuSursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[SodSuSursal]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[SodSuSursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[NombreSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreSucursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreSucursal]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[NombreSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[DireccionSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionSucursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[DireccionSucursal]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Departamento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Departamento"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Departamento]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Departamento]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Unidades]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Unidades"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Unidades]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[Unidades]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[CostoU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CostoU"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CostoU]"
+                      lineageId="Package\Flujo de datos\Union All.Outputs[Union All Output 1].Columns[CostoU]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Dia]"
+                      cachedDataType="i4"
+                      cachedName="Dia"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Dia]"
+                      lineageId="Package\Flujo de datos\Derived Column.Outputs[Derived Column Output].Columns[Dia]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Mes]"
+                      cachedDataType="i4"
+                      cachedName="Mes"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Mes]"
+                      lineageId="Package\Flujo de datos\Derived Column.Outputs[Derived Column Output].Columns[Mes]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[Anio]"
+                      cachedDataType="i4"
+                      cachedName="Anio"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Anio]"
+                      lineageId="Package\Flujo de datos\Derived Column.Outputs[Derived Column Output].Columns[Anio]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CodProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CodProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[DireccionProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DireccionProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NumeroProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NumeroProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[WebProveedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="WebProveedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CodProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="MarcaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[SodSuSursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SodSuSursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DireccionSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[CostoU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CostoU" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Dia]"
+                      dataType="i4"
+                      name="Dia" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Mes]"
+                      dataType="i4"
+                      name="Mes" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[Anio]"
+                      dataType="i4"
+                      name="Anio" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Flujo de datos\Reporte de Errores de Ventas"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Reporte de Errores de Ventas"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Flujo de datos\Reporte de Errores de Ventas.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 3]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Fecha]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Fecha"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Fecha]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Fecha]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[CodProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodProducto]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[NombreProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreProducto]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[MarcaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="MarcaProducto"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[MarcaProducto]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[MarcaProducto]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Categoria]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[SodSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SodSucursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[SodSucursal]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[SodSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[NombreSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreSucursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreSucursal]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[DireccionSucursal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionSucursal"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DireccionSucursal]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionSucursal]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Departamento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Departamento"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Departamento]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Departamento]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Unidades]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Unidades"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Unidades]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Unidades]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[CodigoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodigoCliente"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodigoCliente]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodigoCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[NombreCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreCliente"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreCliente]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[TipoCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="TipoCliente"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[TipoCliente]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[TipoCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[DireccionCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DireccionCliente"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DireccionCliente]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[DireccionCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[NumeroCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NumeroCliente"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NumeroCliente]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NumeroCliente]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[CodVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CodVendedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodVendedor]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[CodVendedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[NombreVendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NombreVendedor"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreVendedor]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[NombreVendedor]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[Vacacionista]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Vacacionista"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Vacacionista]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[Vacacionista]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[PrecioUnitario]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PrecioUnitario"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1].Columns[PrecioUnitario]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[DIA]"
+                      cachedDataType="i4"
+                      cachedName="DIA"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DIA]"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[DIA]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[MES]"
+                      cachedDataType="i4"
+                      cachedName="MES"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[MES]"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[ANIO]"
+                      cachedDataType="i4"
+                      cachedName="ANIO"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ANIO]"
+                      lineageId="Package\Flujo de datos\Derived Column 1.Outputs[Derived Column Output].Columns[ANIO]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Fecha]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CodProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="MarcaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[SodSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SodSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DireccionSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Unidades]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodigoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CodigoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="TipoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DireccionCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NumeroCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[CodVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CodVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NombreVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Vacacionista" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[PrecioUnitario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="PrecioUnitario" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[DIA]"
+                      dataType="i4"
+                      name="DIA" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[MES]"
+                      dataType="i4"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ANIO]"
+                      dataType="i4"
+                      name="ANIO" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
             </component>
             <component
               refId="Package\Flujo de datos\Union All"
@@ -7841,6 +9641,16 @@
           </components>
           <paths>
             <path
+              refId="Package\Flujo de datos.Paths[Data Conversion Error Output1]"
+              endId="Package\Flujo de datos\Reporte de Errores de Ventas.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Flujo de datos\Data Conversion 1.Outputs[Data Conversion Error Output]" />
+            <path
+              refId="Package\Flujo de datos.Paths[Data Conversion Error Output]"
+              endId="Package\Flujo de datos\Reporte de Errores de Compras.Inputs[Flat File Destination Input]"
+              name="Data Conversion Error Output"
+              startId="Package\Flujo de datos\Data Conversion.Outputs[Data Conversion Error Output]" />
+            <path
               refId="Package\Flujo de datos.Paths[Data Conversion Output]"
               endId="Package\Flujo de datos\Multicast.Inputs[Multicast Input 1]"
               name="Data Conversion Output"
@@ -7922,6 +9732,24 @@
               startId="Package\Flujo de datos\Union All 1.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpieza de modelo de negocio"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{45631b35-22f4-404a-be18-e26b0465d4c6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpieza de modelo de negocio"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{65FFB28B-67B6-463F-BB7A-F932FFE91D15}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="DELETE FROM FactCompras;&#xA;DELETE FROM  FactVentas;&#xA;DELETE FROM  DimCliente;&#xA;DELETE FROM  DimFecha;&#xA;DELETE FROM  DimProducto;&#xA;DELETE FROM  DimProveedor;&#xA;DELETE FROM  DimSucursal;&#xA;DELETE FROM  DimUbicacion;&#xA;DELETE FROM  DimVendedor;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -8009,6 +9837,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\Flujo de datos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{D0B6D236-DEAB-4859-8888-C9605232ED88}"
+      DTS:From="Package\Limpieza de modelo de negocio"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Limpieza de tablas pivote SQLServer" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -8025,45 +9861,45 @@
         <NodeLayout
           Size="275.2,79.2"
           Id="Package\Carga masiva Compras Postgres"
-          TopLeft="340.648129535955,122.199999150236" />
+          TopLeft="344.814795974965,292.066664635671" />
         <NodeLayout
           Size="280,72.8"
           Id="Package\Carga masiva Compras SQLServer"
-          TopLeft="34.3333332878018,125.966665828956" />
+          TopLeft="38.4999997268118,295.833331314391" />
         <NodeLayout
           Size="272.8,87.2"
           Id="Package\Carga masiva Ventas Postgres"
-          TopLeft="337.999983062344,238.133332706557" />
+          TopLeft="342.166649501354,407.999998191992" />
         <NodeLayout
           Size="277.6,90.4"
           Id="Package\Carga masiva Ventas SQLServer"
-          TopLeft="36.3333328780207,234.866665033433" />
+          TopLeft="40.4999993170307,404.733330518868" />
         <NodeLayout
           Size="274.4,85.6"
           Id="Package\Flujo de datos"
-          TopLeft="188.703693393388,380.666664219829" />
+          TopLeft="192.870359832398,550.533329705264" />
         <NodeLayout
           Size="273.6,70.4"
           Id="Package\Limpieza de tablas pivote Postgres"
-          TopLeft="339.99998142322,15.5999998915196" />
+          TopLeft="344.16664786223,185.466665376955" />
         <NodeLayout
           Size="285.6,76.8"
           Id="Package\Limpieza de tablas pivote SQLServer"
-          TopLeft="35.499999590218,13.8666665702393" />
+          TopLeft="38.8333327414261,182.866665395034" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="176.31666643901,90.6666665702393">
+          TopLeft="180.066666234119,259.666665395034">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.2999992587172"
+              EndConnector="0,36.1666659193568"
               Start="0,0"
-              End="0,27.7999992587172">
+              End="0,28.6666659193568">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.7999992587172" />
+                    End="0,28.6666659193568" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8074,7 +9910,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="174.733333082911,198.766665828956">
+          TopLeft="178.899999521921,368.633331314391">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8096,7 +9932,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="175.133332878021,325.266665033433">
+          TopLeft="179.299999317031,495.133330518868">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8107,17 +9943,17 @@
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.0473038624935" />
+                    End="0,29.0473038624934" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.0473038624935"
-                    Point2="0,33.0473038624935"
-                    Point3="4,33.0473038624935" />
+                    Point1="0,29.0473038624934"
+                    Point2="0,33.0473038624934"
+                    Point3="4,33.0473038624934" />
                   <mssgle:LineSegment
-                    End="102.370360515367,33.0473038624935" />
+                    End="102.370360515367,33.0473038624934" />
                   <mssgle:CubicBezierSegment
-                    Point1="102.370360515367,33.0473038624935"
-                    Point2="106.370360515367,33.0473038624935"
-                    Point3="106.370360515367,37.0473038624935" />
+                    Point1="102.370360515367,33.0473038624934"
+                    Point2="106.370360515367,33.0473038624934"
+                    Point3="106.370360515367,37.0473038624934" />
                   <mssgle:LineSegment
                     End="106.370360515367,47.8999991863958" />
                 </mssgle:SegmentCollection>
@@ -8130,7 +9966,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="477.524055479587,85.9999998915196">
+          TopLeft="481.690721918597,255.866665376955">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8152,7 +9988,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="476.324056299149,201.399999150236">
+          TopLeft="480.490722738159,371.266664635671">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8174,7 +10010,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="474.399983062344,325.333332706557">
+          TopLeft="478.566649501354,495.199998191992">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8206,6 +10042,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="280,68"
+          Id="Package\Limpieza de modelo de negocio"
+          TopLeft="40.1666663024159,74.7333340264023" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="180.899999521921,142.733334026402">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.1333313686321"
+              Start="0,0"
+              End="0,32.6333313686321">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.6333313686321" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -8213,35 +10075,19 @@
     design-time-name="Package\Flujo de datos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Flujo de datos\Derived Column 1"
-          TopLeft="1103.61105081246,318.837034819884" />
-        <NodeLayout
-          Size="248.8,42.4"
-          Id="Package\Flujo de datos\ODBC Source Compras Postgres"
-          TopLeft="310.83331635015,36.3999997468789" />
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Flujo de datos\Union All 1"
-          TopLeft="1119.030502612,222.166665159994" />
-        <NodeLayout
-          Size="164,41.6"
-          Id="Package\Flujo de datos\Data Conversion 1"
-          TopLeft="1105.55549515067,408.681478639562" />
-        <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Flujo de datos\Ventas Flat File Source"
-          TopLeft="1338.57493160057,32.2833331088391" />
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="251.2,41.6"
           Id="Package\Flujo de datos\OLE DB Source Compras SQLServer"
           TopLeft="45.9090884007288,34.745454303839" />
         <NodeLayout
-          Size="248.8,42.4"
-          Id="Package\Flujo de datos\ODBC Source Ventas Postgres"
-          TopLeft="1058.79253754017,40.3092587320912" />
+          Size="234.4,41.6"
+          Id="Package\Flujo de datos\OLE DB Destination DimProducto"
+          TopLeft="281.336530016353,695.950851620095" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Flujo de datos\Data Conversion"
+          TopLeft="366.846489927901,412.351707548463" />
         <NodeLayout
           Size="120,41.6"
           Id="Package\Flujo de datos\Union All"
@@ -8251,109 +10097,71 @@
           Id="Package\Flujo de datos\OLE DB Source Ventas SQLServer"
           TopLeft="803.399964758755,39.8666663894389" />
         <NodeLayout
-          Size="156,41.6"
-          Id="Package\Flujo de datos\Data Conversion"
-          TopLeft="366.846489927901,414.085040869743" />
+          Size="248.8,42.4"
+          Id="Package\Flujo de datos\ODBC Source Compras Postgres"
+          TopLeft="310.83331635015,36.3999997468789" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Flujo de datos\Derived Column"
           TopLeft="362.991433158476,325.748145882936" />
         <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Flujo de datos\OLE DB Destination"
+          TopLeft="574.208306185282,698.055552657722" />
+        <NodeLayout
+          Size="240.8,41.6"
+          Id="Package\Flujo de datos\OLE DB Destination DimProveedor"
+          TopLeft="102.635645777886,512.769020057068" />
+        <NodeLayout
+          Size="248.8,42.4"
+          Id="Package\Flujo de datos\ODBC Source Ventas Postgres"
+          TopLeft="1058.79253754017,40.3092587320912" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Flujo de datos\Multicast"
+          TopLeft="383.874622900658,519.535181572403" />
+        <NodeLayout
+          Size="232.8,45.6"
+          Id="Package\Flujo de datos\OLE DB Destination DimSucursal"
+          TopLeft="88.0608926244622,622.692304945527" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Flujo de datos\Derived Column 1"
+          TopLeft="1104.65271742221,319.920368145684" />
+        <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\Flujo de datos\OLE DB Destination DimFecha"
+          TopLeft="546.777752128465,525.444442746926" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Flujo de datos\Data Conversion 1"
+          TopLeft="1108.79623571434,406.394441618429" />
+        <NodeLayout
+          Size="128.8,41.6"
+          Id="Package\Flujo de datos\Union All 1"
+          TopLeft="1119.030502612,222.166665159994" />
+        <NodeLayout
           Size="203.2,41.6"
           Id="Package\Flujo de datos\Compras Flat File Source"
           TopLeft="573.833303920098,35.4999999999999" />
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Flat File Source Output]"
-          TopLeft="675.433303920098,77.0999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-214.433323999412,158.066665069593"
-              Start="0,0"
-              End="-214.433323999412,150.566665069593">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,99.0869554801694" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,99.0869554801694"
-                    Point2="0,103.086955480169"
-                    Point3="-4,103.086955480169" />
-                  <mssgle:LineSegment
-                    End="-210.433323999412,103.086955480169" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-210.433323999412,103.086955480169"
-                    Point2="-214.433323999412,103.086955480169"
-                    Point3="-214.433323999412,107.086955480169" />
-                  <mssgle:LineSegment
-                    End="-214.433323999412,150.566665069593" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Derived Column Output1]"
-          TopLeft="1185.98327298157,360.437034819884">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.2444438196782"
-              Start="0,0"
-              End="0,40.7444438196782">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.7444438196782" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Derived Column Output]"
-          TopLeft="442.118961543188,367.348145882936">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.7368949868071"
-              Start="0,0"
-              End="0,39.2368949868071">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.2368949868071" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Flujo de datos\Ventas Flat File Source"
+          TopLeft="1338.57493160057,33.1499997694791" />
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[Union All Output 11]"
-          TopLeft="1183.92077671223,263.766665159994">
+          TopLeft="1184.44161001711,263.766665159994">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.07036965989"
+              EndConnector="0,56.15370298569"
               Start="0,0"
-              End="0,47.57036965989">
+              End="0,48.65370298569">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.57036965989" />
+                    End="0,48.65370298569" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8497,31 +10305,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Flat File Source Output1]"
-          TopLeft="1431.77493160057,73.8833331088391">
+          Id="Package\Flujo de datos.Paths[Multicast Output 5]"
+          TopLeft="471.274622900659,561.135181572403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-218.144428988574,148.283332051155"
+              EndConnector="188.533683284623,136.920371085319"
               Start="0,0"
-              End="-218.144428988574,140.783332051155">
+              End="188.533683284623,129.420371085319">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,92.8503710354396" />
+                    End="0,43.63750328789" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,92.8503710354396"
-                    Point2="0,96.8503710354396"
-                    Point3="-4,96.8503710354396" />
+                    Point1="0,43.63750328789"
+                    Point2="0,47.63750328789"
+                    Point3="4,47.63750328789" />
                   <mssgle:LineSegment
-                    End="-214.144428988574,96.8503710354396" />
+                    End="184.533683284623,47.63750328789" />
                   <mssgle:CubicBezierSegment
-                    Point1="-214.144428988574,96.8503710354396"
-                    Point2="-218.144428988574,96.8503710354396"
-                    Point3="-218.144428988574,100.85037103544" />
+                    Point1="184.533683284623,47.63750328789"
+                    Point2="188.533683284623,47.63750328789"
+                    Point3="188.533683284623,51.63750328789" />
                   <mssgle:LineSegment
-                    End="-218.144428988574,140.783332051155" />
+                    End="188.533683284623,129.420371085319" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8530,28 +10338,54 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Flujo de datos\Multicast"
-          TopLeft="382.948697025323,519.655551941936" />
-        <NodeLayout
-          Size="240.8,41.6"
-          Id="Package\Flujo de datos\OLE DB Destination DimProveedor"
-          TopLeft="103.561571653222,512.769020057068" />
         <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Data Conversion Output]"
-          TopLeft="443.697593476612,455.685040869743">
+          Id="Package\Flujo de datos.Paths[Multicast Output 4]"
+          TopLeft="503.074622900658,543.289812159664">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63.9705110721926"
+              EndConnector="43.7031292278068,0"
               Start="0,0"
-              End="0,56.4705110721926">
+              End="36.2031292278068,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.4705110721926" />
+                    End="36.2031292278068,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Multicast Output 3]"
+          TopLeft="443.474622900659,561.135181572403">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.9380928843051,134.815670047692"
+              Start="0,0"
+              End="-44.9380928843051,127.315670047692">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.4078350238461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,63.4078350238461"
+                    Point2="0,67.4078350238461"
+                    Point3="-4,67.4078350238461" />
+                  <mssgle:LineSegment
+                    End="-40.9380928843051,67.4078350238461" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.9380928843051,67.4078350238461"
+                    Point2="-44.9380928843051,67.4078350238461"
+                    Point3="-44.9380928843051,71.4078350238461" />
+                  <mssgle:LineSegment
+                    End="-44.9380928843051,127.315670047692" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8562,18 +10396,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[Multicast Output 2]"
-          TopLeft="382.948697025323,537.012285999502">
+          TopLeft="383.874622900658,536.952100814735">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.5871253721016,0"
+              EndConnector="-40.4389771227721,0"
               Start="0,0"
-              End="-31.0871253721016,0">
+              End="-32.9389771227721,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-31.0871253721016,0" />
+                    End="-32.9389771227721,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8582,36 +10416,166 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="232.8,41.6"
-          Id="Package\Flujo de datos\OLE DB Destination DimSucursal"
-          TopLeft="122.435890746295,616.192304990727" />
         <EdgeLayout
           Id="Package\Flujo de datos.Paths[Multicast Output 1]"
-          TopLeft="409.188697025323,561.255551941936">
+          TopLeft="415.674622900659,561.135181572403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-170.352806279028,54.9367530487916"
+              EndConnector="-211.213730276196,61.5571233731239"
               Start="0,0"
-              End="-170.352806279028,47.4367530487916">
+              End="-211.213730276196,54.0571233731239">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.7933410997238" />
+                    End="0,17.4170297950256" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.7933410997238"
-                    Point2="0,16.7933410997238"
-                    Point3="-4,16.7933410997238" />
+                    Point1="0,17.4170297950256"
+                    Point2="0,21.4170297950256"
+                    Point3="-4,21.4170297950256" />
                   <mssgle:LineSegment
-                    End="-166.352806279028,16.7933410997238" />
+                    End="-207.213730276196,21.4170297950256" />
                   <mssgle:CubicBezierSegment
-                    Point1="-166.352806279028,16.7933410997238"
-                    Point2="-170.352806279028,16.7933410997238"
-                    Point3="-170.352806279028,20.7933410997238" />
+                    Point1="-207.213730276196,21.4170297950256"
+                    Point2="-211.213730276196,21.4170297950256"
+                    Point3="-211.213730276196,25.4170297950256" />
                   <mssgle:LineSegment
-                    End="-170.352806279028,47.4367530487916" />
+                    End="-211.213730276196,54.0571233731239" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Flat File Source Output1]"
+          TopLeft="1431.77493160057,74.7499997694791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-218.14442898857,147.416665390515"
+              Start="0,0"
+              End="-218.14442898857,139.916665390515">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.2843128919792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,92.2843128919792"
+                    Point2="0,96.2843128919792"
+                    Point3="-4,96.2843128919792" />
+                  <mssgle:LineSegment
+                    End="-214.14442898857,96.2843128919792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-214.14442898857,96.2843128919792"
+                    Point2="-218.14442898857,96.2843128919792"
+                    Point3="-218.14442898857,100.284312891979" />
+                  <mssgle:LineSegment
+                    End="-218.14442898857,139.916665390515" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Flat File Source Output]"
+          TopLeft="675.433303920098,77.0999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-214.433323999412,158.066665069593"
+              Start="0,0"
+              End="-214.433323999412,150.566665069593">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.0869554801694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,99.0869554801694"
+                    Point2="0,103.086955480169"
+                    Point3="-4,103.086955480169" />
+                  <mssgle:LineSegment
+                    End="-210.433323999412,103.086955480169" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-210.433323999412,103.086955480169"
+                    Point2="-214.433323999412,103.086955480169"
+                    Point3="-214.433323999412,107.086955480169" />
+                  <mssgle:LineSegment
+                    End="-214.433323999412,150.566665069593" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Derived Column Output1]"
+          TopLeft="1188.12447656828,361.520368145684">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.8740734727447"
+              Start="0,0"
+              End="0,37.3740734727447">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.3740734727447" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Derived Column Output]"
+          TopLeft="442.118961543189,367.348145882936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0035616655268"
+              Start="0,0"
+              End="0,37.5035616655268">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5035616655268" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Flujo de datos.Paths[Data Conversion Output]"
+          TopLeft="444.16055641428,453.951707548463">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.5834740239397"
+              Start="0,0"
+              End="0,58.0834740239397">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.0834740239397" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8621,184 +10585,66 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="234.4,41.6"
-          Id="Package\Flujo de datos\OLE DB Destination DimProducto"
-          TopLeft="211.544867162935,690.534184991095" />
+          Size="225.6,49.6"
+          Id="Package\Flujo de datos\Reporte de Errores de Compras"
+          TopLeft="572.499968719981,406.599998173912" />
         <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Multicast Output 3]"
-          TopLeft="431.428697025323,561.255551941936">
+          Id="Package\Flujo de datos.Paths[Data Conversion Error Output]"
+          TopLeft="522.846489927901,432.275852861188">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-51.2949437812644,129.278633049159"
+              EndConnector="49.6534787920799,0"
               Start="0,0"
-              End="-51.2949437812644,121.778633049159">
+              End="42.1534787920799,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.9887872892602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,53.9887872892602"
-                    Point2="0,57.9887872892602"
-                    Point3="-4,57.9887872892602" />
-                  <mssgle:LineSegment
-                    End="-47.2949437812644,57.9887872892602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-47.2949437812644,57.9887872892602"
-                    Point2="-51.2949437812644,57.9887872892602"
-                    Point3="-51.2949437812644,61.9887872892602" />
-                  <mssgle:LineSegment
-                    End="-51.2949437812644,121.778633049159" />
+                    End="42.1534787920799,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-45.00964732271,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="221.6,41.6"
-          Id="Package\Flujo de datos\OLE DB Destination DimFecha"
-          TopLeft="521.777753494405,599.111108901324" />
+          Size="216,41.6"
+          Id="Package\Flujo de datos\Reporte de Errores de Ventas"
+          TopLeft="1367.70825860505,404.833330636389" />
         <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Multicast Output 4]"
-          TopLeft="479.61536369199,561.255551941936">
+          Id="Package\Flujo de datos.Paths[Data Conversion Error Output1]"
+          TopLeft="1272.79623571434,426.413886127409">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="152.962389802415,37.8555569593884"
+              EndConnector="94.9120228907038,0"
               Start="0,0"
-              End="152.962389802415,30.3555569593884">
+              End="87.4120228907038,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,6.38569663333871" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,6.38569663333871"
-                    Point2="0,10.3856966333387"
-                    Point3="4,10.3856966333387" />
-                  <mssgle:LineSegment
-                    End="148.962389802415,10.3856966333387" />
-                  <mssgle:CubicBezierSegment
-                    Point1="148.962389802415,10.3856966333387"
-                    Point2="152.962389802415,10.3856966333387"
-                    Point3="152.962389802415,14.3856966333387" />
-                  <mssgle:LineSegment
-                    End="152.962389802415,30.3555569593884" />
+                    End="87.4120228907038,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Flujo de datos\OLE DB Destination"
-          TopLeft="479.416644697803,689.388886051322" />
-        <EdgeLayout
-          Id="Package\Flujo de datos.Paths[Multicast Output 5]"
-          TopLeft="453.668697025323,561.255551941936">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="129.63127661204,128.133334109386"
-              Start="0,0"
-              End="129.63127661204,120.633334109386">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,93.1972778085361" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,93.1972778085361"
-                    Point2="0,97.1972778085361"
-                    Point3="4,97.1972778085361" />
-                  <mssgle:LineSegment
-                    End="125.63127661204,97.1972778085361" />
-                  <mssgle:CubicBezierSegment
-                    Point1="125.63127661204,97.1972778085361"
-                    Point2="129.63127661204,97.1972778085361"
-                    Point3="129.63127661204,101.197277808536" />
-                  <mssgle:LineSegment
-                    End="129.63127661204,120.633334109386" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-22.3803752733981,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\ODBC Source Compras Postgres">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Flujo de datos\OLE DB Source Compras SQLServer">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\OLE DB Source Ventas SQLServer">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\ODBC Source Ventas Postgres">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\OLE DB Destination DimProveedor">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\OLE DB Destination DimSucursal">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8824,7 +10670,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Flujo de datos\OLE DB Destination DimFecha">
+    design-time-name="Package\Flujo de datos\OLE DB Source Ventas SQLServer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flujo de datos\ODBC Source Compras Postgres">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8838,6 +10697,53 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Flujo de datos\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flujo de datos\OLE DB Destination DimProveedor">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flujo de datos\ODBC Source Ventas Postgres">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flujo de datos\OLE DB Destination DimSucursal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flujo de datos\OLE DB Destination DimFecha">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
