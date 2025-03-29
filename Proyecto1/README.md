@@ -972,5 +972,3 @@ CREATE TABLE FactVentas (
 
 
 <img src="images/modelo_sql.png" alt="drawing" style="margin-bottom:25px; margin-top:25px;">
-
-## Manual de implementación 
