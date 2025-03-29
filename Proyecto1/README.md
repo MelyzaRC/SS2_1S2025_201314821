@@ -696,7 +696,7 @@ La herramienta ***SSIS*** nos provee de diferentes opciones para realizar la lim
 |DireccionCliente|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(DireccionCliente,"\"",""),"├","") ,"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
 |Vacacionista|```REPLACE(REPLACE(Vacacionista,"1","Si"),"0","No")```|Sustituye el valor 1 por la palabra *Si* y el valor 0 por la palabra *No*. Cuando el valor es *NAC*, no se realiza ninguna sustitución, esto debido a que dicho valor nos servirá para generar las consultas correspondientes.|
 |NombreProducto|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(NombreProducto,"\"",""),"├","") ,"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
-|Categoria|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(Categoria,"\"",""),"├",""),"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
+|Categoria|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(Categoria,"\"",""),"├","") ,"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
 |DireccionSucursal|```REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(DireccionSucursal,"\"",""),"├","") ,"▒",""),"│",""),"¡",""),"⌐","")```|Elimina los caracteres que pueden afectar los registros.|
 |Region|```REPLACE(Region,"Metropolitala","Metropolitana")```|Corrige el valor de la región por la palabra correcta.|
 |Unidades|```REPLACE(Unidades,"-","")```|Elimina los negativos de las unidades, en este caso, se considera que las unidades negativas son errores cometidos por los responsables del llenado de datos. |
